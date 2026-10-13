@@ -473,6 +473,7 @@ body.rm-game-open{overflow:hidden}body.rm-game-open>.shell{transform:scale(.96);
 .rm-info-circle{display:grid;place-items:center;width:18px;height:18px;border:1px solid #a6a6ae;border-radius:50%;color:#d2d2d8;font-size:12px;line-height:1;font-weight:600;font-family:Georgia,serif;font-style:normal}
 
 .rm-onboarding-word .ghost-letter{animation:none}.rm-onboarding-word .ghost-letter.onboarding-ghost-arrival{animation:ghost-arrive .5s ease-out}@media(prefers-reduced-motion:reduce){.rm-onboarding-word .ghost-letter.onboarding-ghost-arrival{animation:none}}
+@media(max-height:760px){#gameLayer #board .tile{height:clamp(30px,calc((100svh - 500px)/6),47px)!important}}
 
 /* ROADMAP CSS END */
 </style></head><body class="booting">
@@ -587,6 +588,7 @@ body.rm-game-open{overflow:hidden}body.rm-game-open>.shell{transform:scale(.96);
 <p><b>Розыгрыши.</b> В «Призах» билеты покупаются по 1, 5 или 10. Задание Авито открывает партнёрский розыгрыш и даёт первый билет после получения награды.</p>
 <p>Все задания, призы и соперники демонстрационные. Реальных покупок и розыгрышей нет. Темы и редкие слова выключены; включить их можно в профиле. Прогресс хранится в этом браузере.</p>
 <button class="primary" id="closeRules">Понятно, играем</button></dialog>
+
 
 
 
