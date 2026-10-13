@@ -951,7 +951,7 @@ function renderPrizeChest(){
  const count=prizeChestCount();$('prizeChestCount').textContent='Сундуков: '+count;
  $('prizeChestArt').src=EVENT_ART['prize-chest'];$('openPrizeChest').innerHTML=count?'Открыть':'Открыть за '+PRIZE_CHEST_COST+' монет';
  $('openPrizeChest').setAttribute('aria-label',count?'Открыть один сундук':'Открыть сундук за '+PRIZE_CHEST_COST+' монет');
- $('prizeChestCaption').textContent=count?'Одна случайная награда за открытие':'За победы, задания или 200 монет';
+ $('prizeChestCaption').textContent=count?'Одна случайная награда за открытие':'За слова, соревнования или 200 монет';
  $('prizeChestRewards').innerHTML='<span>'+art('gift','chest-reward-icon')+'Приз</span><span>'+art('energy','chest-reward-icon')+'Энергия</span><span>'+eventArt('coins-100','chest-reward-icon')+'Монеты</span><span>'+eventArt('hard','chest-reward-icon')+'Кристаллы</span>';
  $('prizeChestRewards').setAttribute('aria-label','50% приз, 30% энергия, 15% монеты, 5% кристаллы');$('prizeChestPriceNote').textContent=count?'Открыть бесплатно':'Монеты тратятся только при открытии';
 }
