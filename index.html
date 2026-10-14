@@ -315,11 +315,46 @@ body.qz-active{background:#101112}body.qz-active>.shell{max-width:489px;padding:
 .qz-nav button>svg{display:block;width:24px;height:24px;flex:none;fill:none;stroke:currentColor}
 .qz-nav button[aria-current=page]{color:#f5f5f6}
 .qz-nav .attention-target:after{top:7px;right:calc(50% - 17px)}
-.qz-recurring-task{position:relative}.qz-recurring-task .rm-task-title{padding-right:26px}
-.qz-task-repeat{position:absolute;right:calc(22% + 42px);top:18px;display:inline-flex;color:#96979e}
-.qz-task-repeat>*{width:16px;height:16px;display:inline-flex}.qz-task-repeat svg{width:16px;height:16px}
 .qz-page .qz-chest-hub{margin:0 0 5cqw}.qz-chest-hub .prize-chest-hero{max-height:190px}
 .qz-prize-row.attention-target:after{top:15px;right:18px}
+
+/* The query-container itself must not size its height in cqw: on desktop that
+   resolves against the viewport rather than the 489px game surface. */
+.qz-level-page,.qz-question-page,.qz-result,.qz-pvp{min-height:100dvh}
+.qz-level-page{box-sizing:border-box;display:flex;align-items:flex-end;padding-top:132px;background:#191919}
+.qz-level-backdrop{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.4;z-index:0}
+.qz-level-backdrop .qz-header,.qz-level-backdrop .qz-balances{visibility:hidden}
+.qz-level-page>.qz-header,.qz-level-page>.qz-balances{z-index:2}
+.qz-level-page .qz-sheet{margin-top:0;z-index:3;max-height:calc(100dvh - 132px);overflow-y:auto;overscroll-behavior:contain;padding-bottom:max(5cqw,env(safe-area-inset-bottom));box-sizing:border-box}
+.qz-sheet .qz-boosters-sheet{padding-top:5cqw;margin-bottom:3cqw}
+.qz-sheet .qz-boosters-sheet button{height:22cqw;padding:4cqw 7cqw}
+.qz-sheet .qz-primary{margin-top:4cqw}
+.qz-level-difficulty{position:absolute;top:21cqw;left:4.3cqw;font-size:3.3cqw;color:#bcbcc4;display:flex;gap:1.8cqw;align-items:center}
+.qz-level-difficulty i,.qz-hard-label i{display:inline-block;width:7px;height:7px;background:#f23d68;border-radius:50%;box-shadow:0 0 7px #f23d6844;flex:none}
+.qz-app .qz-hard-label{display:flex;align-items:center;gap:8px;font-size:3.5cqw;color:#bcbcc4;margin:0 0 5cqw}
+.qz-sheet .qz-hard-label{margin-top:-8cqw;margin-bottom:5cqw;position:relative;max-width:50%}
+.qz-question-body{min-height:100dvh;padding-top:min(21cqw,92px)}
+.qz-question-card{min-height:min(50cqw,220px)}
+.qz-question-page.has-feedback .qz-question-card{min-height:min(45cqw,200px)}
+.qz-question-copy{width:100%}.qz-flag{display:block;font-size:21cqw;line-height:1.05;margin:1cqw 0 4cqw;font-family:"Apple Color Emoji","Segoe UI Emoji",sans-serif}
+.qz-answers button{height:min(22cqw,90px)}
+.qz-question-body .qz-boosters{padding-top:6cqw;margin-top:5cqw}
+.qz-question-body .qz-feedback{margin-top:5cqw}.qz-question-body .qz-primary{margin-top:4cqw}
+.qz-level-progress{display:flex;justify-content:space-between;gap:12px;margin:0 2cqw 4cqw;color:#ababB2;font-size:3.3cqw}
+.qz-level-progress b{color:#eee;font-weight:500}
+.qz-category-page{display:flex;align-items:center;background:radial-gradient(ellipse at 50% 50%,#29252f,#191919 70%)}
+.qz-category-page main{width:100%;box-sizing:border-box;padding:25cqw 5cqw 8cqw}
+.qz-category-page h1{margin-top:3cqw}.qz-category-page .qz-hard-label{margin:4cqw 0}
+.qz-category-options{display:grid;gap:3cqw;margin:7cqw 0}
+.qz-category-options button{display:flex;align-items:center;gap:4cqw;padding:5cqw 4cqw;min-height:70px;color:#f5f5f6;background:#2c2c30;border:1px solid #ffffff10;border-radius:5cqw;text-align:left}
+.qz-category-options button>span:first-child{font-size:8cqw}.qz-category-options b{font-size:4.3cqw;flex:1;font-weight:500}.qz-category-options button>span:last-child{color:#9b9ba3;font-size:7cqw}
+.qz-level-chest .qz-box-art{width:24cqw;height:24cqw;object-fit:contain;display:block;margin:3cqw auto}
+.qz-recurring-heading{display:flex;align-items:center;gap:8px}.qz-recurring-heading>.shared-recurring{flex:none}
+.qz-app button.qz-product{color:#f5f5f6;border:1px solid #3d3d42;font:inherit}
+.qz-product-price{display:flex;align-items:center;justify-content:center;gap:1cqw;width:100%;background:#1a1a1d;color:#fff;border-radius:4cqw;margin-top:4cqw;padding:2.5cqw .7cqw;font-weight:600;font-size:3.7cqw;white-space:nowrap;box-sizing:border-box}
+.qz-product-price .qz-coin{width:4.5cqw;mix-blend-mode:lighten}
+.qz-partner-link{display:flex;align-items:center;justify-content:center;text-decoration:none}
+@media(prefers-reduced-motion:reduce){.qz-sheet{animation:none!important}}
 
 /* One family of flat cards and outline navigation in both games and Game Center. */
 .shared-nav-icon{display:block;width:24px;height:24px;flex-shrink:0;margin:0 auto 5px;color:inherit}
@@ -341,13 +376,21 @@ body.qz-active{background:#101112}body.qz-active>.shell{max-width:489px;padding:
 .shared-task-list .rm-task-title{padding-right:20px}.shared-task-list .rm-task-reward>b{color:#d6c3f4}.shared-task-list .rm-task-reward>img{width:42px;height:42px}
 .shared-recurring{display:inline-flex;vertical-align:middle;color:#a7a7b1;margin-left:7px;align-items:center}.shared-recurring svg{width:18px;height:18px}
 .shared-game-exchange{margin-top:28px}.shared-section-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}.shared-section-heading h2{font-size:18px!important;margin:0!important}.shared-section-heading .gc-hard{font-size:14px;white-space:nowrap}.shared-coin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.shared-coin-pack{background:#29292c;border-radius:20px;padding:14px 9px 10px;display:flex;flex-direction:column;align-items:center;min-width:0}.shared-coin-pack>img{width:65px;height:65px;object-fit:contain}.shared-coin-pack>strong{font-size:21px;margin-top:6px}.shared-coin-pack>small{font-size:11px;color:#a6a6b0;margin:4px 0 13px}.shared-coin-pack>button{border:0;border-radius:11px;background:#3b3547;min-height:42px;width:100%;display:grid;place-items:center;color:#e4d4ff;padding:6px}.shared-coin-pack .gc-hard{font-size:14px}.shared-coin-pack .gc-gem{width:18px;height:18px}.shared-exchange-note{font-size:11px;color:#93939c;text-align:center;margin-top:12px}
+.shared-coin-pack{background:#29292c;border-radius:20px;padding:14px 9px 10px;display:flex;flex-direction:column;align-items:center;min-width:0}.shared-coin-pack>img{width:65px;height:65px;object-fit:contain}.shared-coin-pack>strong{font-size:21px;margin-top:6px}.shared-coin-pack>small{font-size:11px;color:#a6a6b0;margin:4px 0 13px}.shared-coin-pack>.shared-coin-price{border:0;border-radius:11px;background:#3b3547;min-height:42px;width:100%;display:grid;place-items:center;color:#e4d4ff;padding:6px}.shared-coin-pack .gc-hard{font-size:14px}.shared-coin-pack .gc-gem{width:18px;height:18px}.shared-exchange-note{font-size:11px;color:#93939c;text-align:center;margin-top:12px}
 #roadmapShopHub[hidden]{display:none!important}
 
 #prizesScreen #roadmapPrizeHub .rm-raffle-rail{margin-top:24px}#prizesScreen #rmCalendarRewardSlot[hidden]{display:none!important}
 #gameLayer button:active:not(:disabled),.gc-screen button:active:not(:disabled),.gc-dialog button:active:not(:disabled){box-shadow:none;filter:brightness(1.14)}
 #gameLayer button:focus:not(:focus-visible){outline:none}#gameLayer button:focus-visible{outline:2px solid #9c9ca5;outline-offset:3px}
 @media(max-width:360px){.shared-wallets{gap:8px}.shared-wallets>span{padding:12px 9px;gap:5px}.shared-wallets small{font-size:10px}.shared-pack-grid{gap:10px}.shared-pack{padding-left:11px;padding-right:11px}.shared-pack:last-child{grid-template-columns:52px 1fr auto;gap:9px;padding:22px 13px}.shared-pack:last-child .shared-pack-gem{width:52px;height:52px}.shared-pack:last-child .shared-pack-value{gap:5px}.shared-pack:last-child .shared-pack-value strong{font-size:24px}.shared-pack:last-child .shared-pack-value del{font-size:12px}.shared-coin-grid{gap:7px}.shared-coin-pack{padding-left:6px;padding-right:6px}.shared-section-heading h2{font-size:17px!important}}
+
+.shared-pack,.shared-coin-pack{color:inherit;border:0;cursor:pointer;font-family:inherit;text-align:center;transition:background .16s,transform .16s}
+.shared-pack:active,.shared-coin-pack:active{background:#36363a;transform:scale(.985)}
+.shared-priority-tasks{margin:24px 0}.shared-priority-tasks>h2{font-size:18px;margin:0 0 13px}.shared-task-anchor{scroll-margin-top:110px;border-radius:24px;transition:filter .2s}.shared-task-focus{filter:brightness(1.2)}
+h2 .shared-recurring,.rm-task-section-title .shared-recurring{display:inline-flex;align-items:center;vertical-align:middle;margin-left:7px}h2 .shared-recurring svg{width:20px;height:20px}
+.shared-credit-toast{display:flex;align-items:center;gap:11px;background:#37303f;color:#f8f4ff;top:max(76px,calc(env(safe-area-inset-top) + 60px));max-width:calc(100vw - 28px);white-space:normal}
+.shared-credit-toast>img{width:34px;height:34px;object-fit:contain}.shared-credit-toast>span{display:grid;gap:3px}.shared-credit-toast small{font-size:11px;color:#d4cadf}.wallet-reward-flight{z-index:90}
+.partner-prize-link{display:flex;align-items:center;justify-content:center;text-decoration:none;min-height:48px;text-align:center}.partner-prize-link[hidden]{display:none!important}
 
 /* GAME CENTER CSS END */
 </style><style>
@@ -632,6 +675,8 @@ body.rm-game-open{overflow:hidden}body.rm-game-open>.shell{transform:scale(.96);
 #gameLayer .calendar-rewards{padding-top:0!important}#gameLayer .calendar-rewards h2{margin:8px 0!important}#gameLayer #prizeTrack{margin-bottom:0}#gameLayer .track-reward-art{height:47px;margin-bottom:3px}#gameLayer .track-coins{max-height:49px}#gameLayer .track-dot{width:20px;height:20px;line-height:20px;margin-top:7px}#gameLayer .track-step>small{font-size:9px}#gameLayer .track-amount{font-size:16px}#gameLayer .track-bonus{font-size:9px}#gameLayer .calendar-rewards .home-chest-progress:has(button[hidden]){display:none}.rm-hub-timer{font-size:9px;line-height:13px;color:#a9a9b1}.rm-hub-timer time{font-variant-numeric:tabular-nums;color:#ffe580}.rm-contest-lobby-head{align-items:flex-start}.rm-contest-lobby-head .rm-event-deadline{font-size:11px;margin-top:12px}.rm-contest-lobby-head .rm-event-deadline time{font-size:21px;line-height:26px}
 #gameLayer #homePlay:disabled{display:none}
 
+.rm-contest-bonus{font-size:12px;line-height:1.4;color:#c8b8e4;margin:7px 0 15px}.rm-contest-score{margin-bottom:4px}.rm-group-heading .shared-recurring{flex:none}
+
 /* ROADMAP CSS END */
 </style></head><body class="booting">
 <section class="boot-notice" id="bootNotice" role="status">
@@ -725,7 +770,7 @@ body.rm-game-open{overflow:hidden}body.rm-game-open>.shell{transform:scale(.96);
 <footer class="footer"><span>Интерактивный концепт</span><span>Без интернета · Один HTML-файл</span></footer></div>
 <nav class="bottom-nav" id="gameNav" aria-label="Основные вкладки"><button id="navGame" aria-current="page"><img data-art="nav-game" alt=""><span>Игра</span></button><button id="navChain"><span class="nav-chain-icon" aria-hidden="true">↝</span><span>Цепочка</span></button><button id="navCollections"><img class="event-nav-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktdGlja2V0LXBlcmZvcmF0ZWQtZmlsbCIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNMCA0LjVBMS41IDEuNSAwIDAgMSAxLjUgM2gxM0ExLjUgMS41IDAgMCAxIDE2IDQuNVY2YS41LjUgMCAwIDEtLjUuNSAxLjUgMS41IDAgMCAwIDAgMyAuNS41IDAgMCAxIC41LjV2MS41YTEuNSAxLjUgMCAwIDEtMS41IDEuNWgtMTNBMS41IDEuNSAwIDAgMSAwIDExLjVWMTBhLjUuNSAwIDAgMSAuNS0uNSAxLjUgMS41IDAgMSAwIDAtM0EuNS41IDAgMCAxIDAgNnptNC0xdjFoMXYtMXptMSAzdi0xSDR2MXptNyAwdi0xaC0xdjF6bS0xLTJoMXYtMWgtMXptLTYgM0g0djFoMXptNyAxdi0xaC0xdjF6bS03IDFINHYxaDF6bTcgMXYtMWgtMXYxem0tOCAxdjFoMXYtMXptNyAxaDF2LTFoLTF6Ii8+Cjwvc3ZnPg==" alt=""><span>Ивенты</span></button><button id="navPrizes"><img data-art="nav-prizes" alt=""><span>Призы</span></button><button id="navProfile"><img data-art="nav-profile" alt=""><span>Профиль</span></button></nav>
 <dialog class="sheet" id="energyDialog"><button class="sheet-close" data-close="energyDialog" aria-label="Закрыть энергию">×</button><h2 id="energyTitle">Твоя энергия</h2><div class="energy-large"><img data-art="energy" alt="Энергия"><span id="energyTotal">0</span></div><p id="energyExplanation">Дополнительное слово стоит 3 энергии. Энергию можно получить за прогресс в ивентах.</p><p id="energyRegenInfo" class="gc-regen"></p><button id="buyEnergyCoins" class="primary">+3 энергии · 100 монет</button><button id="energyCollections" class="primary">К сундуку в магазине</button><button id="energyChain" class="secondary hidden" hidden>Играть в цепочку</button><h3>История энергии</h3><ul class="ledger" id="energyLedger"></ul><p class="small-demo">На старте — 0 энергии и 200 монет на первый сундук.<br>Ежедневный вход даёт 1–3 энергии.</p></dialog>
-<dialog class="sheet" id="coinsDialog"><button class="sheet-close" data-close="coinsDialog" aria-label="Закрыть монеты">×</button><h2>Твои монеты</h2><div class="energy-large"><span class="coin-icon">●</span><span id="coinTotal">0</span></div><p id="coinExplanation">Получай монеты за прогресс в темах и используй их в игре.</p><div class="hint-prices"><span>Открыть букву<b>35 ●</b></span><span>Убрать три буквы<b>20 ●</b></span></div><button class="primary" id="coinCollections">Получить монеты</button><h3>История монет</h3><ul class="ledger" id="coinLedger"></ul></dialog><div id="hintFlights" aria-hidden="true"></div><button id="eventChest" class="event-chest" hidden aria-label="Бонус за вход"><img class="daily-energy-symbol" data-art="energy" alt=""><span id="chestLabel">+1</span></button><div id="eventFlights" aria-hidden="true"></div><div id="eventToast" class="event-toast" role="status"></div><dialog id="marketDialog" class="sheet market-dialog"><button class="sheet-close" data-close="marketDialog" aria-label="Закрыть предложение">×</button><img id="marketDialogArt" class="market-dialog-art" alt=""><p id="marketDialogLabel" class="detail-label"></p><h2 id="marketTitle"></h2><p id="marketDescription"></p><div id="marketTicketTotal" class="market-ticket-total" hidden></div><p id="marketBalance" class="market-balance"></p><p id="marketExpiryNotice" class="expiry-notice" hidden></p><div id="marketBuyControls" class="market-buy-controls"><button class="primary" id="marketAction"></button><button class="raffle-multiplier" id="marketMultiplier" hidden aria-label="Количество билетов">×1</button></div><p id="marketPurchaseStatus" class="market-purchase-status" role="status" aria-live="polite"></p><button class="secondary" id="marketGetCoins" hidden>Где взять монеты</button><p class="small-demo">Демо. Реальных покупок и подключений нет.</p></dialog><dialog class="sheet" id="prizeDialog"><button class="sheet-close" data-close="prizeDialog" aria-label="Закрыть приз">×</button><div class="sheet-hero"><img id="prizeDialogArt" class="prize-art" data-art="gift" alt="Подарок"><p class="detail-label" id="prizeStatus">Демонстрационный приз</p><h2 id="prizeTitle"></h2><p id="prizeDescription"></p><p id="prizeExpiryNotice" class="expiry-notice" hidden></p></div><div id="prizeCode" class="reward-code hidden"></div><button id="prizeAction" class="primary">Забрать приз</button><p class="small-demo">Демо. Реальный промокод не выдаётся, перехода к покупке нет.</p></dialog>
+<dialog class="sheet" id="coinsDialog"><button class="sheet-close" data-close="coinsDialog" aria-label="Закрыть монеты">×</button><h2>Твои монеты</h2><div class="energy-large"><span class="coin-icon">●</span><span id="coinTotal">0</span></div><p id="coinExplanation">Получай монеты за прогресс в темах и используй их в игре.</p><div class="hint-prices"><span>Открыть букву<b>35 ●</b></span><span>Убрать три буквы<b>20 ●</b></span></div><button class="primary" id="coinCollections">Получить монеты</button><h3>История монет</h3><ul class="ledger" id="coinLedger"></ul></dialog><div id="hintFlights" aria-hidden="true"></div><button id="eventChest" class="event-chest" hidden aria-label="Бонус за вход"><img class="daily-energy-symbol" data-art="energy" alt=""><span id="chestLabel">+1</span></button><div id="eventFlights" aria-hidden="true"></div><div id="eventToast" class="event-toast" role="status"></div><dialog id="marketDialog" class="sheet market-dialog"><button class="sheet-close" data-close="marketDialog" aria-label="Закрыть предложение">×</button><img id="marketDialogArt" class="market-dialog-art" alt=""><p id="marketDialogLabel" class="detail-label"></p><h2 id="marketTitle"></h2><p id="marketDescription"></p><div id="marketTicketTotal" class="market-ticket-total" hidden></div><p id="marketBalance" class="market-balance"></p><p id="marketExpiryNotice" class="expiry-notice" hidden></p><div id="marketBuyControls" class="market-buy-controls"><button class="primary" id="marketAction"></button><button class="raffle-multiplier" id="marketMultiplier" hidden aria-label="Количество билетов">×1</button></div><a id="marketPartnerLink" class="primary partner-prize-link" target="_blank" rel="noopener noreferrer" hidden>Перейти на сайт партнёра</a><p id="marketPurchaseStatus" class="market-purchase-status" role="status" aria-live="polite"></p><button class="secondary" id="marketGetCoins" hidden>Где взять монеты</button><p class="small-demo">Демо. Реальных покупок и подключений нет.</p></dialog><dialog class="sheet" id="prizeDialog"><button class="sheet-close" data-close="prizeDialog" aria-label="Закрыть приз">×</button><div class="sheet-hero"><img id="prizeDialogArt" class="prize-art" data-art="gift" alt="Подарок"><p class="detail-label" id="prizeStatus">Демонстрационный приз</p><h2 id="prizeTitle"></h2><p id="prizeDescription"></p><p id="prizeExpiryNotice" class="expiry-notice" hidden></p></div><div id="prizeCode" class="reward-code hidden"></div><button id="prizeAction" class="primary">Забрать приз</button><a id="prizePartnerLink" class="primary partner-prize-link" target="_blank" rel="noopener noreferrer" hidden>Перейти на сайт партнёра</a><p class="small-demo">Демо. Ссылка ведёт на сайт партнёра; приз и промокод не активируются.</p></dialog>
 <dialog class="sheet chest-reveal-dialog" id="chestRevealDialog"><button class="sheet-close" id="closeChestReveal" aria-label="Закрыть открытие сундука">×</button><h2 id="chestRevealTitle">Открываем сундук</h2><p id="chestRevealStatus"></p><div class="chest-roulette" id="chestRoulette"><span class="roulette-pointer" aria-hidden="true"></span><div class="roulette-window" id="rouletteWindow"><div class="roulette-track" id="rouletteTrack" aria-hidden="true"></div></div></div><div class="chest-result" id="chestResult" hidden><img id="chestResultArt" alt=""><h3 id="chestResultTitle"></h3><p id="chestResultSubtitle"></p><div id="chestResultEnergy" class="chest-energy-reward" hidden></div></div><div class="chest-reveal-actions" id="chestRevealActions" hidden><button class="primary" id="chestGoPrizes">К призам</button><button class="secondary" id="chestDone">Готово</button></div><p class="small-demo" id="chestRevealDemo">Демонстрационный приз · без реального подключения</p></dialog>
 <dialog class="sheet chest-contents-dialog" id="chestContentsDialog"><button class="sheet-close" data-close="chestContentsDialog" aria-label="Закрыть состав сундука">×</button><h2>Что внутри сундука</h2><p>В каждом сундуке одна случайная награда. Валюта и энергия сразу начисляются, предложения попадают в «Призы».</p><div id="chestContentsEnergy" class="chest-energy-packs"></div><div id="chestContentsList"></div><p class="small-demo">Вероятности и суммы заданы для проверки прототипа: 50% приз, 30% энергия, 15% монеты, 5% кристаллы. Не являются условиями реальной акции.</p><button class="primary" data-close="chestContentsDialog">Понятно</button></dialog>
 <dialog class="sheet login-dialog" id="dailyLoginDialog"><button class="sheet-close" data-close="dailyLoginDialog" aria-label="Закрыть бонус за вход">×</button><p class="login-eyebrow" id="loginDayCaption"></p><h2>Энергия каждый день</h2><p>Заходи и забирай энергию для новых слов.</p><div id="loginDays" class="login-days" aria-label="Награды за семь дней"></div><button class="primary" id="claimDailyLogin">Забрать</button><p id="loginNextReward" class="login-next" role="status"></p><div class="login-week-timer"><span>Новая неделя через</span><b id="loginWeekTimer"></b></div><p class="small-demo">Одна награда в день. Пропущенные дни не переносятся.</p></dialog>
@@ -981,7 +1026,7 @@ function normalizeCenter(raw){
  const unique=items=>{const seen=new Set();return (Array.isArray(items)?items:[]).filter(x=>x&&typeof x.id==='string'&&!seen.has(x.id)&&seen.add(x.id));};
  for(const k of ['hardGrants','hardSpends'])c[k]=unique(raw[k]).filter(x=>Number.isInteger(x.amount)&&x.amount>0&&x.amount<100000).map(x=>({id:x.id,amount:x.amount,label:String(x.label||'Операция').slice(0,150),at:Number(x.at)||0}));
  for(const k of ['verifiedTasks','taskClaims'])c[k]=Array.isArray(raw[k])?[...new Set(raw[k].filter(x=>typeof x==='string'))]:[];
- c.offers=unique(raw.offers).filter(x=>GC_OFFERS.some(o=>o.id===x.id)).map(x=>({id:x.id,used:!!x.used,seen:!!x.seen,at:Number(x.at)||0}));
+ c.offers=unique(raw.offers).filter(x=>GC_OFFERS.some(o=>o.id===x.id)).map(x=>({id:x.id,used:!!x.used,seen:!!x.seen,at:Number(x.at)||0,...expiryField(x)}));
  c.tickets=Number.isInteger(raw.tickets)&&raw.tickets>=0?raw.tickets:0;c.calendarReady=Array.isArray(raw.calendarReady)?[...new Set(raw.calendarReady.filter(x=>/^\d{4}-\d{2}$/.test(x)))]:[];
  for(const k of Object.keys(GC_DEFAULT_BALANCE))if(Number.isInteger(raw.balance?.[k])&&raw.balance[k]>0&&raw.balance[k]<=9999)c.balance[k]=raw.balance[k];
  c.regenAt=Number.isFinite(raw.regenAt)?Math.min(Date.now(),Math.max(0,raw.regenAt)):Date.now();return normalizeSharedCenter(c,raw);
@@ -1034,20 +1079,20 @@ function gcProgress(count,total){return '<div class="gc-progress" role="progress
 function gcTaskCard(t){const status=sharedTaskStatus(t.id),claimed=status==='claimed',ready=status==='ready';return '<article class="gc-card gc-task"><span class="gc-task-icon">'+t.icon+'</span><div class="gc-task-copy"><h3>'+t.title+'</h3><p>'+t.copy+'</p></div>'+hardIcon('+'+t.reward)+'<button data-center-task="'+t.id+'" class="'+(ready&&!claimed?'ready':'')+'" '+(claimed?'disabled':'')+'>'+(claimed?'Получено':ready?'Забрать':'Подробнее')+'</button></article>';}
 function gcCalendarCard(month=dayKey().slice(0,7)){const p=calendarMonthProgress(state.economy,month),ready=centerCalendarReady(month),claimed=centerCalendarClaimed(month);return '<article class="gc-card gc-task"><span class="gc-task-icon">▦</span><div class="gc-task-copy"><h3>Весь календарь «5 букв»</h3><p>'+new Date(month+'-01T12:00:00').toLocaleDateString('ru-RU',{month:'long',year:'numeric'})+'</p></div>'+hardIcon('+'+centerConfig().calendarHard)+gcProgress(ready?p.total:p.count,p.total)+'<button class="'+(ready&&!claimed?'ready':'')+'" '+(claimed?'disabled':'')+' '+(ready?'data-center-claim-month="'+month+'"':'data-rm="enter-game"')+'>'+(claimed?'Получено':ready?'Забрать кристаллы':'К календарю')+'</button></article>';}
 function gcShop(){return sharedCrystalShop();}
-function gcOwned(){const offers=state.center.offers.map(x=>{const o=GC_OFFERS.find(t=>t.id===x.id);return '<button class="gc-card gc-prize-row attention-target" data-center-offer="'+x.id+'" data-attention="'+(flagEnabled('notifications')&&!x.seen)+'">'+eventArt(o.art)+'<span><b>'+o.title+'</b><small>'+(x.used?'Использован в демо':'За кристаллы · Game Center')+'</small></span></button>';}).join('');const prizes=ownedPrizeEntries();return '<h1>Мои призы</h1><p class="gc-subtitle">Из игр и сундуков</p>'+offers+prizes.map(x=>'<button class="gc-card gc-prize-row attention-target" data-center-game-prize="'+x.key+'" data-attention="'+(flagEnabled('notifications')&&prizeNeedsAttention(x.key))+'">'+eventArt('gift')+'<span><b>'+escapeHTML(x.title)+'</b><small>5 букв · '+(x.item.used?'Использован в демо':'Открыть приз')+'</small></span></button>').join('')+(!offers&&!prizes.length?'<div class="gc-empty">'+eventArt('gift-locked')+'<h2>Здесь будут твои призы</h2><p>Открывай сундуки в магазинах игр и забирай награды.</p><button class="gc-small-btn" data-rm="enter-game">Играть в 5 букв</button></div>':'');}
+function gcOwned(){const offers=state.center.offers.filter(x=>prizeActionable(x)).map(x=>{const o=GC_OFFERS.find(t=>t.id===x.id);return '<button class="gc-card gc-prize-row attention-target" data-center-offer="'+x.id+'" data-attention="'+(flagEnabled('notifications')&&!x.seen)+'">'+eventArt(o.art)+'<span><b>'+o.title+'</b><small>'+(x.used?'Использован в демо':'За кристаллы · Game Center')+'</small></span></button>';}).join('');const prizes=ownedPrizeEntries();return '<h1>Мои призы</h1><p class="gc-subtitle">Из игр и сундуков</p>'+offers+prizes.map(x=>'<button class="gc-card gc-prize-row attention-target" data-center-game-prize="'+x.key+'" data-attention="'+(flagEnabled('notifications')&&prizeNeedsAttention(x.key))+'">'+eventArt('gift')+'<span><b>'+escapeHTML(x.title)+'</b><small>5 букв · '+(x.item.used?'Использован в демо':'Открыть приз')+'</small></span></button>').join('')+(!offers&&!prizes.length?'<div class="gc-empty">'+eventArt('gift-locked')+'<h2>Здесь будут твои призы</h2><p>Открывай сундуки в магазинах игр и забирай награды.</p><button class="gc-small-btn" data-rm="enter-game">Играть в 5 букв</button></div>':'');}
 function renderCenter(force=false){
- $('hardBalance').textContent=hardBalance();if(view!=='center')return;
+ paintSharedBalances();if(view!=='center')return;
  const c=state.center,{regenAt,...visibleCenter}=c,key=JSON.stringify([centerPage,location.hash,state.quizi,hardBalance(),coinBalance(),walletBalance(),prizeChestCount(),visibleCenter,featureFlags,prizeWins(),calendarMonthProgress().count,ownedPrizeEntries().map(x=>[x.key,x.item.seen,x.item.used])]);if(!force&&key===centerRenderKey)return;centerRenderKey=key;
  let html='';
  if(centerPage==='center')html='<h1>Во что сыграем?</h1><p class="gc-subtitle">Играй, открывай сундуки, забирай награды</p><button class="gc-card gc-quiz-card gc-five-card" data-rm="enter-game"><span class="gc-five-icon" aria-hidden="true">5</span><span><h2>5 букв</h2><p>Слово дня и другие режимы</p></span><span class="gc-game-arrow">›</span></button><button class="gc-card gc-quiz-card" data-center-route="quiz"><span class="gc-quiz-art">?</span><span><h2>Квизи</h2><p>Вопросы и поединки</p></span><span class="gc-game-arrow">›</span></button>'+(flagEnabled('gachaChest')?'<section class="gc-section"><div class="gc-card gc-chest-card"><div><span class="gc-kicker">Награды из игр</span><h2>'+ (prizeChestCount()?'Сундуков: '+prizeChestCount():'Твой следующий сундук')+'</h2><p>Призы, энергия, монеты<br>и кристаллы</p><button class="gc-small-btn" data-center-action="chests">'+(prizeChestCount()?'К сундукам':'Как получить')+'</button></div>'+eventArt('prize-chest')+'</div></section>':'')+'<button class="gc-card gc-link-row" data-center-route="center-tasks"><span><strong>Задания и большие цели</strong><small>Зарабатывай кристаллы</small></span><span>›</span></button>';
- else if(centerPage==='center-tasks')html='<h1>Задания</h1><p class="gc-subtitle">Общие задания и большие цели в играх</p><h2>Общие задания</h2>'+renderSharedTasks()+'<section class="gc-section"><h2>Большие достижения</h2>'+gcCalendarCard()+c.calendarReady.filter(m=>m!==dayKey().slice(0,7)&&!centerCalendarClaimed(m)).map(gcCalendarCard).join('')+'</section><p class="gc-note">В прототипе кнопка «Выполнить» имитирует действие у партнёра.</p>';
+ else if(centerPage==='center-tasks')html='<h1>Задания</h1><p class="gc-subtitle">Общие задания и большие цели в играх</p>'+renderPrioritySharedTasks()+'<h2>Общие задания</h2>'+renderSharedTasks({excludePriority:true})+'<section class="gc-section"><h2>Большие достижения</h2>'+gcCalendarCard()+c.calendarReady.filter(m=>m!==dayKey().slice(0,7)&&!centerCalendarClaimed(m)).map(gcCalendarCard).join('')+'</section><p class="gc-note">В прототипе кнопка «Выполнить» имитирует действие у партнёра.</p>';
  else if(centerPage==='center-shop')html=gcShop();
  else if(centerPage==='center-prizes')html=gcOwned();
  else if(centerPage==='quiz')html=renderQuizi();
  else html='<h1>Профиль</h1><p class="gc-subtitle">Твой кошелёк и управление прототипом</p><button class="gc-card gc-link-row" data-center-action="wallet"><span><strong>Кристаллы</strong><small>История начислений и обменов</small></span>'+hardIcon(hardBalance())+'</button><section class="gc-card"><h2>Ресурсы «5 букв»</h2><div class="gc-swap"><span>'+coinBalance()+' монет</span><span>'+walletBalance()+' энергии</span></div><p class="gc-subtitle" style="margin:12px 0 0">Не смешиваются с общим балансом кристаллов</p></section><section class="gc-section"><h2>Проверить цикл · демо</h2><div class="gc-card gc-debug"><button data-center-debug="hard">+100 кристаллов</button><button data-center-debug="cashback">+100 кэшбэка</button><button data-center-debug="coins">+500 монет</button><button data-center-debug="energy">+3 энергии</button><button data-center-debug="chest">+1 сундук</button><button data-center-debug="calendar">Закрыть календарь · демо</button><button data-center-debug="regen">Ускорить энергию</button></div><p class="gc-subtitle">Для проверки наград без ожидания. Демо календаря открывает награду, не подменяя отгаданные слова.</p><button class="gc-card gc-link-row" data-center-action="balance"><span><strong>Баланс прототипа</strong><small>Награда за месяц и восстановление энергии</small></span><span>›</span></button><button class="gc-card gc-link-row" data-center-route="profile"><span><strong>Настройки «5 букв»</strong><small>Фичефлаги и отладка игры</small></span><span>›</span></button></section>';
  $('centerContent').innerHTML=html+(centerPage==='quiz'?'':'<p class="gc-note">Интерактивный прототип · без реальных покупок и призов</p>');renderCenterNotifications();
 }
-function renderCenterNotifications(){if(!state.center)return;const enabled=flagEnabled('notifications'),ready=sharedTaskCatalog().some(t=>sharedTaskStatus(t.id)==='ready')||state.center.calendarReady.some(m=>!centerCalendarClaimed(m))||centerCalendarReady()&&!centerCalendarClaimed(dayKey().slice(0,7)),prizes=state.center.offers.some(x=>!x.seen)||ownedPrizeEntries().some(x=>prizeNeedsAttention(x.key));for(const b of document.querySelectorAll('#centerNav [data-center-route]'))setNotification(b,enabled&&(b.dataset.centerRoute==='center-tasks'?ready:b.dataset.centerRoute==='center-prizes'?prizes:false));}
+function renderCenterNotifications(){if(!state.center)return;const enabled=flagEnabled('notifications'),ready=sharedTaskCatalog().some(t=>sharedTaskStatus(t.id)==='ready')||state.center.calendarReady.some(m=>!centerCalendarClaimed(m))||centerCalendarReady()&&!centerCalendarClaimed(dayKey().slice(0,7)),prizes=state.center.offers.some(x=>prizeActionable(x)&&!x.seen)||ownedPrizeEntries().some(x=>prizeNeedsAttention(x.key));for(const b of document.querySelectorAll('#centerNav [data-center-route]'))setNotification(b,enabled&&(b.dataset.centerRoute==='center-tasks'?ready:b.dataset.centerRoute==='center-prizes'?prizes:false));}
 function centerModal(html){$('centerDialogBody').innerHTML=html;$('centerDialogStatus').textContent='';openModal('centerDialog');}
 function showHardWallet(){centerPending=null;const rows=state.center.hardGrants.map(x=>({...x,delta:x.amount})).concat(state.center.hardSpends.map(x=>({...x,delta:-x.amount}))).sort((a,b)=>b.at-a.at);centerModal('<img class="gc-hero-gem" src="'+GC_GEM+'" alt=""><h2 id="centerDialogTitle">'+hardBalance()+' кристаллов</h2><p>Общая валюта Game Center. Получай кристаллы за общие задания и большой прогресс. Обменивай их на монеты в магазинах игр.</p><button class="primary" data-center-route="center">К играм</button><button class="secondary" data-center-route="center-shop">Пополнить кристаллы</button><h3>История</h3><ul class="ledger">'+(rows.map(x=>'<li><span>'+escapeHTML(x.label)+'</span><b class="'+(x.delta<0?'debit':'')+'">'+(x.delta>0?'+':'−')+Math.abs(x.delta)+' ◇</b></li>').join('')||'<li>Первые кристаллы — за общие задания</li>')+'</ul>');}
 function openCenterBuy(kind,id){
@@ -1058,7 +1103,11 @@ function openCenterBuy(kind,id){
 }
 function confirmCenterPurchase(){const p=centerPending;if(!p)return;const r=centerPurchase(p.kind,p.id,p.token);if(!r.ok){$('centerDialogStatus').textContent=r.reason==='insufficient'?'Недостаточно кристаллов. Пополни баланс через задания.':'Эта операция уже выполнена.';return;}centerPending=null;renderCenter(true);centerModal('<h2 id="centerDialogTitle">'+(p.kind==='swap'?'Монеты уже в игре':p.kind==='ticket'?'Билет добавлен':'Предложение получено')+'</h2><p>'+(p.kind==='swap'?'+'+centerConfig().swapCoins+' монет. Баланс «5 букв»: '+coinBalance():p.kind==='ticket'?'Мои билеты: '+state.center.tickets:'Найти и использовать его можно в «Моих призах».')+'</p><p class="gc-balance-line">Осталось '+hardBalance()+' кристаллов</p><button class="primary" data-center-route="'+(p.kind==='swap'?'shop':p.kind==='offer'?'center-prizes':'center')+'">'+(p.kind==='swap'?'К сундукам':p.kind==='offer'?'К призам':'К играм')+'</button>');}
 function showCenterTask(id){return showSharedTask(id);}
-function showCenterOffer(id){const item=state.center.offers.find(x=>x.id===id),o=GC_OFFERS.find(x=>x.id===id);if(!item||!o)return;item.seen=true;save();renderCenter(true);centerModal(eventArt(o.art,'gc-dialog-art')+'<h2 id="centerDialogTitle">'+o.title+'</h2><p>'+(item.used?'Использовано в демо':'Предложение получено за '+o.cost+' кристаллов')+'</p><div class="reward-code">DEMO–GAMECENTER</div><p class="small-demo">Реальный кэшбэк и подключение не выполняются.</p><button class="primary" data-center-use="'+id+'">'+(item.used?'Готово':'Использовать в демо')+'</button>');}
+function showCenterOffer(id){
+ const item=state.center.offers.find(x=>x.id===id),o=GC_OFFERS.find(x=>x.id===id);if(!item||!o||!prizeActionable(item))return;
+ item.seen=true;save();renderCenter(true);
+ centerModal(eventArt(o.art,'gc-dialog-art')+'<h2 id="centerDialogTitle">'+o.title+'</h2><p>Предложение получено за '+o.cost+' кристаллов</p><div class="reward-code">DEMO–GAMECENTER</div><a class="primary partner-prize-link" href="'+partnerPrizeUrl(o)+'" target="_blank" rel="noopener noreferrer" data-center-use="'+id+'">Перейти на сайт партнёра</a><p class="small-demo">Демо. Ссылка ведёт на сайт партнёра; приз и промокод не активируются.</p>');
+}
 function showCenterBalance(){
  const c=centerConfig(),fields={calendarHard:'Кристаллы за полный календарь',energyMinutes:'Минут на 1 энергию',energyCap:'Предел восстановления энергии'};
  centerModal('<h2 id="centerDialogTitle">Баланс прототипа</h2><p>Меняет будущие операции. Уже полученные награды не пересчитываются.</p><form class="gc-form" id="centerBalanceForm">'+Object.entries(fields).map(([k,label])=>'<label>'+label+'<input name="'+k+'" type="number" min="1" max="9999" value="'+c[k]+'" required></label>').join('')+'<button class="primary" type="submit">Сохранить баланс</button></form>');
@@ -1066,7 +1115,7 @@ function showCenterBalance(){
 }
 function centerDebug(kind){if(busy)return;if(kind==='hard')creditHard(eventId('debug-hard'),100,'Начисление для проверки · демо');if(kind==='cashback')state.center.cashbackGrants.push({id:eventId('debug-cashback'),amount:100,label:'Начисление для проверки · демо',at:Date.now()});if(kind==='coins')grantDebugCoins(500);if(kind==='energy')creditEnergy(eventId('debug-energy'),3,'Начисление для проверки · демо');if(kind==='chest')grantDebugChest();if(kind==='calendar'){const m=dayKey().slice(0,7);if(!state.center.calendarReady.includes(m))state.center.calendarReady.push(m);}if(kind==='regen'){state.center.regenAt=Date.now()-centerConfig().energyMinutes*60000;syncEnergyRegen();}save();renderCenter(true);if(kind==='calendar')navigate('center-tasks');else if(kind==='chest')navigate('shop');else if(kind==='hard')showHardWallet();else if(kind==='cashback')navigate('center-shop');}
 function handleCenterClick(e){
- const b=e.target.closest('button');if(!b||b.disabled||busy)return;const d=b.dataset;
+ const b=e.target.closest('button,a[data-center-use]');if(!b||b.disabled||busy)return;const d=b.dataset;
  if(handleSharedClick(b))return;
  if(handleQuiziClick(b))return;
  if(d.rm==='enter-game'){if(state.roadmap.onboarding==='word'){startCalendarDay(dayKey());navigate('play');}else{navigate('home');roadmapIntro();}return;}
@@ -1088,8 +1137,8 @@ const QZ_STAKES=[250,500,1000];
 const QZ_FEATURES=[
  ['qzTasks','Квизи · игровые задания','Четыре задания с прогрессом и монетами'],
  ['qzCommonTasks','Квизи · общие задания','Общие статусы с «5 букв»'],
- ['qzDifficulty','Квизи · сложность','Процент до запуска таймера'],
- ['qzExamples','Квизи · примеры вопросов','Два лёгких вопроса по математике'],
+ ['qzDifficulty','Квизи · сложность','Маркер сложного уровня'],
+ ['qzExamples','Квизи · примеры вопросов','Математика и страны по флагам'],
  ['qzExplanation','Квизи · разбор ошибки','Правильный ответ и объяснение'],
  ['qzBoosters','Квизи · бустеры','Замена, заморозка и 50/50'],
  ['qzChests','Квизи · сундуки за монеты','Цена и состав из «5 букв»'],
@@ -1104,6 +1153,34 @@ const QZ_QUESTIONS=[
  {id:'multiply',category:'Математика',hard:false,percent:86,text:'Сколько будет 7 × 8?',answers:['54','56','64','48'],correct:1,why:'7 × 8 = 56. Можно посчитать так: 7 × (10 − 2) = 70 − 14 = 56.'},
  {id:'addition',category:'Математика',hard:false,percent:92,text:'Сколько будет 15 + 27?',answers:['32','40','42','52'],correct:2,why:'Складываем десятки и единицы: 10 + 20 + 5 + 7 = 30 + 12 = 42.'}
 ];
+// PvE has a separate catalog: adding flag demos does not change the ten-question PvP deck.
+const QZ_FLAG_QUESTIONS=[
+ {id:'flag-japan',category:'География',hard:false,flag:'🇯🇵',flagName:'Белое поле с красным кругом',text:'Угадай страну по флагу',answers:['Япония','Китай','Южная Корея','Вьетнам'],correct:0,why:'Красный круг на белом поле — государственный флаг Японии.'},
+ {id:'flag-brazil',category:'География',hard:false,flag:'🇧🇷',flagName:'Зелёное поле с жёлтым ромбом и синим кругом',text:'Угадай страну по флагу',answers:['Португалия','Мексика','Бразилия','Аргентина'],correct:2,why:'Зелёное поле, жёлтый ромб и синий круг — флаг Бразилии.'}
+];
+const QZ_HARD_CATEGORIES=[
+ {id:'geography',title:'География',icon:'🌍',questions:[
+  {id:'geo-capital',text:'Какой город является столицей Австралии?',answers:['Сидней','Мельбурн','Канберра','Перт'],correct:2,why:'Столица Австралии — Канберра. Сидней и Мельбурн крупнее, но не являются столицей.'},
+  {id:'geo-landlocked',text:'Какая из этих стран не имеет выхода к морю?',answers:['Боливия','Чили','Перу','Эквадор'],correct:0,why:'Боливия не имеет выхода к морю. Остальные три страны выходят к Тихому океану.'},
+  {id:'geo-strait',text:'Какой пролив отделяет Европу от Африки?',answers:['Босфор','Берингов','Ла-Манш','Гибралтарский'],correct:3,why:'Гибралтарский пролив разделяет юг Европы и север Африки.'},
+  {id:'geo-ocean',text:'Какой океан омывает восточное побережье Африки?',answers:['Атлантический','Индийский','Тихий','Северный Ледовитый'],correct:1,why:'Восточное побережье Африки омывает Индийский океан.'}
+ ]},
+ {id:'science',title:'Наука',icon:'🔬',questions:[
+  {id:'science-element',text:'Какой химический элемент обозначается символом Fe?',answers:['Фтор','Железо','Фосфор','Франций'],correct:1,why:'Fe — символ железа, от латинского ferrum.'},
+  {id:'science-planet',text:'У какой планеты самый короткий год?',answers:['Венера','Марс','Меркурий','Земля'],correct:2,why:'Меркурий оборачивается вокруг Солнца примерно за 88 земных суток.'},
+  {id:'science-unit',text:'В каких единицах измеряют электрическое сопротивление?',answers:['Вольты','Амперы','Ватты','Омы'],correct:3,why:'Электрическое сопротивление измеряют в омах.'},
+  {id:'science-gas',text:'Какого газа больше всего в атмосфере Земли?',answers:['Азот','Кислород','Углекислый газ','Аргон'],correct:0,why:'Около 78% земной атмосферы составляет азот.'}
+ ]},
+ {id:'culture',title:'Искусство',icon:'🎨',questions:[
+  {id:'culture-painting',text:'Кто написал картину «Звёздная ночь»?',answers:['Клод Моне','Винсент ван Гог','Пабло Пикассо','Сальвадор Дали'],correct:1,why:'«Звёздную ночь» написал Винсент ван Гог в 1889 году.'},
+  {id:'culture-novel',text:'Кто автор романа «Сто лет одиночества»?',answers:['Хорхе Луис Борхес','Эрнест Хемингуэй','Габриэль Гарсиа Маркес','Хулио Кортасар'],correct:2,why:'Автор романа «Сто лет одиночества» — Габриэль Гарсиа Маркес.'},
+  {id:'culture-music',text:'Кто написал балет «Лебединое озеро»?',answers:['Сергей Прокофьев','Игорь Стравинский','Николай Римский-Корсаков','Пётр Чайковский'],correct:3,why:'Музыку балета «Лебединое озеро» написал Пётр Ильич Чайковский.'},
+  {id:'culture-museum',text:'В каком городе находится галерея Уффици?',answers:['Флоренция','Рим','Венеция','Милан'],correct:0,why:'Галерея Уффици находится во Флоренции.'}
+ ]}
+];
+const QZ_HARD_QUESTIONS=QZ_HARD_CATEGORIES.flatMap(c=>c.questions.map(q=>({...q,category:c.title,categoryId:c.id,hard:true})));
+function qzIsHardLevel(level=state.quizi.level){return level%6===0;}
+function qzIsHardRun(r=state.quizi.run){return r?.mode==='pve'&&r.hardLevel===true;}
 // Demo match content and pacing, independent of the PvE question sequence.
 const QZ_PVP_RULES={seconds:30,countdown:3,feedbackMs:800};
 const QZ_PVP_QUESTIONS=[...QZ_QUESTIONS,
@@ -1115,7 +1192,7 @@ const QZ_PVP_QUESTIONS=[...QZ_QUESTIONS,
  {id:'pvp-fraction',category:'Математика',hard:true,text:'Сколько будет ½ + ¼?',answers:['¾','⅔','⅜','1'],correct:0,why:'Половина — это две четверти. 2/4 + 1/4 = 3/4.'},
  {id:'pvp-clock',category:'Логика',hard:false,text:'Сколько минут в полутора часах?',answers:['60','75','90','120'],correct:2,why:'Один час — 60 минут, половина часа — 30. Вместе 90 минут.'}
 ];
-function qzFindQuestion(id){return QZ_PVP_QUESTIONS.find(x=>x.id===id);}
+function qzFindQuestion(id){return QZ_FLAG_QUESTIONS.find(x=>x.id===id)||QZ_HARD_QUESTIONS.find(x=>x.id===id)||QZ_PVP_QUESTIONS.find(x=>x.id===id);}
 function qzMatchDeck(random=Math.random){const ids=QZ_PVP_QUESTIONS.map(x=>x.id);for(let i=ids.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]];}return ids;}
 function qzDemoPlan(ids){return [4200,8500,12800,17500,22500,28000].map((offset,index)=>{const question=qzFindQuestion(ids[index]);return {index,questionId:question.id,offset,selected:[0,2,5].includes(index)?question.correct:(question.correct+1)%4};});}
 function qzIsRace(r=state.quizi.run){return r?.mode==='pvp'&&r.pvpVersion===1;}
@@ -1138,7 +1215,12 @@ function normalizeQuizi(raw){
  if(raw.version<3)q.claims=q.claims.map(id=>['answers5','hard','energy100','pvp'].includes(id)?qzTaskClaimKey(id,Date.now(),q):id);
  q.prizes=q.prizes.map(item=>({...item,seen:raw.version<3?item.seen!==false&&item.id!==q.pendingChest:!!item.seen}));
  const r=raw.run;
- if(r&&typeof r.id==='string'&&['pve','pvp'].includes(r.mode)&&['preview','countdown','question','feedback','waiting','result'].includes(r.phase)&&!!qzFindQuestion(r.questionId)&&Number.isFinite(r.endsAt))q.run={...r,used:Array.isArray(r.used)?r.used:[],hidden:Array.isArray(r.hidden)?r.hidden:[]};
+ if(r&&typeof r.id==='string'&&['pve','pvp'].includes(r.mode)&&['category','preview','countdown','question','feedback','waiting','result'].includes(r.phase)&&!!qzFindQuestion(r.questionId)&&Number.isFinite(r.endsAt))q.run={...r,used:Array.isArray(r.used)?r.used:[],hidden:Array.isArray(r.hidden)?r.hidden:[]};
+ if(q.run?.mode==='pve'&&q.run.pveVersion===2){
+  const r=q.run,category=QZ_HARD_CATEGORIES.find(x=>x.id===r.categoryId),ids=r.questionIds;
+  if(!Array.isArray(ids)||!Number.isInteger(r.index)||r.index<0||r.index>=ids.length||ids.some(id=>!qzFindQuestion(id))||!Array.isArray(r.answerLog)||r.hardLevel&&(ids.length!==3||r.phase!=='category'&&!category))q.run=null;
+  else{r.questionIds=[...ids];r.answerLog=r.answerLog.map(x=>({...x}));}
+ }
  if(qzIsRace(q.run)){
   const r=q.run,ids=r.questionIds;
   if(!Array.isArray(ids)||ids.length!==QZ_PVP_QUESTIONS.length||new Set(ids).size!==ids.length||ids.some(id=>!qzFindQuestion(id))||!Array.isArray(r.answerLog)||!Array.isArray(r.opponentPlan)||!Number.isInteger(r.index)||r.index<0||r.index>=ids.length)q.run=null;
@@ -1163,12 +1245,14 @@ function qzGrantResource(kind,amount){
  else state.quizi[kind]+=amount;
  qzSave();return true;
 }
-function qzPool(){return flagEnabled('qzExamples')?QZ_QUESTIONS:[QZ_QUESTIONS[0]];}
-function qzQuestion(){return qzFindQuestion(state.quizi.run?.questionId)||QZ_QUESTIONS[0];}
+function qzPool(){return flagEnabled('qzExamples')?[QZ_FLAG_QUESTIONS[0],QZ_QUESTIONS[1],QZ_FLAG_QUESTIONS[1],QZ_QUESTIONS[2]]:[QZ_QUESTIONS[1]];}
+function qzQuestion(){return qzFindQuestion(state.quizi.run?.questionId)||QZ_QUESTIONS[1];}
 function qzNextQuestion(){const q=state.quizi,pool=qzPool();return pool[q.sequence++%pool.length];}
-function qzCreateRun(mode){const q=state.quizi,question=qzNextQuestion();return {id:qzId('round'),mode,phase:mode==='pve'&&flagEnabled('qzDifficulty')?'preview':'question',questionId:question.id,index:0,selected:null,correct:false,answers:0,score:0,opponentScore:0,startedAt:Date.now(),endsAt:0,used:[],hidden:[],stake:mode==='pvp'?q.stake:0,settled:false};}
-function qzStartPve(){const q=state.quizi;if(q.run){qzGo('round');return false;}if(q.energy<6){qzGo('shop');return false;}q.energy-=6;q.run=qzCreateRun('pve');q.spends.push({id:q.run.id,amount:6,at:Date.now()});if(q.run.phase==='question')q.run.endsAt=Date.now()+20000;qzSave();qzGo('round');return true;}
+function qzCreateRun(mode){const q=state.quizi,hard=mode==='pve'&&qzIsHardLevel(),question=hard?QZ_HARD_QUESTIONS[0]:qzNextQuestion();return {id:qzId('round'),mode,pveVersion:mode==='pve'?2:undefined,level:q.level,hardLevel:hard,phase:hard?'category':'question',questionId:question.id,questionIds:hard?QZ_HARD_CATEGORIES[0].questions.slice(0,3).map(x=>x.id):[question.id],categoryId:null,answerLog:[],index:0,selected:null,correct:false,answers:0,score:0,opponentScore:0,startedAt:Date.now(),endsAt:0,used:[],hidden:[],stake:mode==='pvp'?q.stake:0,settled:false};}
+function qzStartPve(){const q=state.quizi;if(q.run){qzGo('round');return false;}if(q.energy<6){qzGo('shop');return false;}q.energy-=6;q.run=qzCreateRun('pve');q.spends.push({id:q.run.id,amount:6,mode:'pve',at:Date.now()});if(q.run.phase==='question')q.run.endsAt=Date.now()+20000;qzSave();qzGo('round');return true;}
+function qzChooseCategory(id){const r=state.quizi.run,c=QZ_HARD_CATEGORIES.find(x=>x.id===id);if(!qzIsHardRun(r)||r.phase!=='category'||!c)return false;r.categoryId=id;r.questionIds=c.questions.slice(0,3).map(x=>x.id);r.questionId=r.questionIds[0];r.phase='question';r.startedAt=Date.now();r.endsAt=Date.now()+20000;qzSave();return true;}
 function qzBeginQuestion(){const r=state.quizi.run;if(!r||r.phase!=='preview')return false;r.phase='question';r.startedAt=Date.now();r.endsAt=Date.now()+20000;qzSave();return true;}
+function qzSettlePve(r){const q=state.quizi;if(r.settled)return false;r.settled=true;if(!r.correct)return true;const completed=r.level||q.level;q.level=Math.max(q.level,completed+1);r.awardedPoints=flagEnabled('qzBattlePass')?q.config.levelPoints:0;q.points+=r.awardedPoints;if(completed%6===0){const id='level:'+r.id;if(!q.chests.some(x=>x.id===id))q.chests.push({id,source:'level',opened:false});r.levelChest=id;}return true;}
 function qzStart(){const q=state.quizi;if(q.run){qzGo('round');return false;}if(q.coins<q.stake)return false;
  qzDialog('Поединок на время','<p>30 секунд, одинаковая последовательность вопросов. Взнос '+qzNumber(q.stake)+' монет, победителю — '+qzNumber(q.stake*2)+'. При ничьей взнос вернётся.</p>'+(flagEnabled('qzPvpRace')?'<p>10 вопросов. Верный ответ — 1 балл, ошибка — 0. После ответа следующий вопрос откроется автоматически. Перед стартом — отсчёт 3 секунды.</p>':'')+'<p class="qz-muted">'+(q.opponent==='friend'?'Приглашение друга пока не подключено. Здесь можно проверить бой с демосоперником.':'Соперник в этом прототипе — локальная симуляция, без сетевого подбора.')+'</p><button class="primary" data-qz-action="start-demo-pvp">Играть с демосоперником</button>');return true;}
 function qzStartPvp(){const q=state.quizi;if(q.run||q.coins<q.stake)return false;q.coins-=q.stake;
@@ -1199,19 +1283,19 @@ function qzAnswer(index,timeout=false,expectedIndex){if(qzIsRace())return qzAnsw
  if(!timeout&&(!Number.isInteger(index)||index<0||index>3||r.hidden.includes(index)))return false;
  const question=qzQuestion();r.selected=timeout?null:index;r.correct=!timeout&&index===question.correct;r.phase='feedback';r.secondsLeft=Math.max(0,Math.ceil((r.endsAt-Date.now())/1000));r.answers+=timeout?0:1;
  if(r.mode==='pvp'){if(r.correct){r.score++;if(question.hard)r.hardCorrect=true;}r.opponentScore=Math.min(3,Math.floor((Date.now()-r.startedAt)/9000));}
- else if(!r.settled){r.settled=true;q.rounds.push({id:r.id,mode:'pve',won:r.correct,answered:!timeout,hard:question.hard,at:Date.now()});if(r.correct){const completed=q.level++;r.awardedPoints=flagEnabled('qzBattlePass')?q.config.levelPoints:0;q.points+=r.awardedPoints;if(completed%6===0){const product=CHEST_PRIZE_POOL.filter(x=>!x.coins&&!x.energy&&!x.hard)[Math.floor(completed/6-1)%4];q.prizes.push({id:'level:'+r.id,productId:product.id,source:'level',at:Date.now(),used:false,seen:false});r.levelGift=product.id;}}}
+ else if(!r.settled){const final=!qzIsHardRun(r)||r.index===r.questionIds.length-1,entry={id:r.id+':'+r.index,runId:r.id,index:r.index,mode:'pve',questionId:question.id,won:r.correct,answered:!timeout,hard:qzIsHardRun(r)||!!question.hard,completedLevel:r.correct&&final,at:Date.now()};if(!q.rounds.some(x=>x.id===entry.id))q.rounds.push(entry);if(Array.isArray(r.answerLog))r.answerLog.push({...entry,selected:r.selected});if(!r.correct||final)qzSettlePve(r);}
  qzSave();return true;
 }
 function qzContinue(){const q=state.quizi,r=q.run;if(!r)return false;
  if(qzIsRace(r)&&r.phase==='feedback')return qzAdvancePvp();
- if(r.phase==='feedback'){if(r.mode==='pvp'){if(Date.now()>=r.endsAt)return qzSettlePvp();r.questionId=qzNextQuestion().id;r.phase='question';r.selected=null;r.hidden=[];r.used=[];r.index++;}else r.phase='result';qzSave();return true;}
+ if(r.phase==='feedback'){if(r.mode==='pvp'){if(Date.now()>=r.endsAt)return qzSettlePvp();r.questionId=qzNextQuestion().id;r.phase='question';r.selected=null;r.hidden=[];r.used=[];r.index++;}else if(qzIsHardRun(r)&&r.correct&&!r.settled){r.index++;r.questionId=r.questionIds[r.index];r.phase='question';r.selected=null;r.correct=false;r.hidden=[];r.used=[];r.startedAt=Date.now();r.endsAt=Date.now()+20000;}else r.phase='result';qzSave();return true;}
  if(r.phase==='result'){const mode=r.mode;q.run=null;qzSave();qzGo(mode==='pvp'?'pvp':'');return true;}return false;
 }
 function qzBoost(kind){const q=state.quizi,r=q.run;if(!flagEnabled('qzBoosters')||!r||r.mode!=='pve'||r.phase!=='question'||Date.now()>=r.endsAt||!Object.hasOwn(q.boosters,kind)||q.boosters[kind]<1||r.used.includes(kind))return false;
- if(kind==='swap'&&qzPool().length<2)return false;q.boosters[kind]--;r.used.push(kind);
+ const swaps=qzIsHardRun(r)?QZ_HARD_QUESTIONS.filter(x=>x.categoryId===r.categoryId&&!r.questionIds.includes(x.id)):qzPool().filter(x=>x.id!==r.questionId);if(kind==='swap'&&!swaps.length)return false;q.boosters[kind]--;r.used.push(kind);
  if(kind==='freeze')r.endsAt+=q.config.freezeSeconds*1000;
  if(kind==='half')r.hidden=[0,1,2,3].filter(i=>i!==qzQuestion().correct).slice(0,2);
- if(kind==='swap'){let next=qzNextQuestion();if(next.id===r.questionId)next=qzNextQuestion();r.questionId=next.id;r.hidden=[];}
+ if(kind==='swap'){r.questionId=swaps[0].id;if(r.questionIds)r.questionIds[r.index]=r.questionId;r.hidden=[];}
  qzSave();return true;
 }
 function qzTaskPeriod(id,now=Date.now(),q=state.quizi){
@@ -1220,12 +1304,12 @@ function qzTaskPeriod(id,now=Date.now(),q=state.quizi){
 }
 function qzTaskClaimKey(id,now=Date.now(),q=state.quizi){return id+':'+qzTaskPeriod(id,now,q).key;}
 function qzTasks(){const q=state.quizi,now=Date.now(),day=qzTaskPeriod('answers5',now,q),week=qzTaskPeriod('energy100',now,q),during=(x,p)=>Number.isFinite(x.at)&&x.at>=p.start&&x.at<p.end&&x.at<=now;
- const today=q.rounds.filter(r=>during(r,day)),pvpAnswers=q.rounds.filter(r=>r.mode==='pvp').flatMap(r=>Array.isArray(r.answerLog)?r.answerLog.filter(x=>during(x,day)):[]);
+ const today=q.rounds.filter(r=>during(r,day)),pve=today.filter(r=>r.mode==='pve');
  return [
- {id:'answers5',title:'Ответить на 5 вопросов',count:today.filter(r=>r.mode==='pve'&&r.answered).length+pvpAnswers.length+today.filter(r=>r.mode==='pvp'&&!Array.isArray(r.answerLog)).reduce((sum,r)=>sum+(r.answers||0),0),total:5,reward:250,copy:'Ответь на пять вопросов сегодня в любом режиме. Верный ответ не обязателен.'},
- {id:'hard',title:'Ответить на сложный вопрос',count:today.some(r=>r.mode==='pve'&&r.won&&r.hard||r.mode==='pvp'&&!Array.isArray(r.answerLog)&&r.hardCorrect)||pvpAnswers.some(a=>a.correct&&qzFindQuestion(a.questionId)?.hard)?1:0,total:1,reward:300,copy:'Дай правильный ответ на сложный вопрос сегодня в любом режиме.'},
+ {id:'answers5',title:'Ответить на 5 вопросов',count:pve.filter(r=>r.answered).length,total:5,reward:250,copy:'Ответь на пять вопросов сегодня в обычном режиме. Ответы в поединках не учитываются. Верный ответ не обязателен.'},
+ {id:'hard',title:'Ответить на сложный вопрос',count:pve.some(r=>r.won&&r.hard&&r.completedLevel!==false)?1:0,total:1,reward:300,copy:'Пройди сложный уровень обычного режима: выбери категорию и верно ответь на три вопроса. Каждый шестой уровень — сложный. Поединки не учитываются.'},
  {id:'energy100',title:'Потратить 100 энергии за 7 дней',count:q.spends.filter(x=>during(x,week)).reduce((sum,x)=>sum+x.amount,0),total:100,reward:500,copy:'Потрать 100 энергии в текущем недельном периоде. После обновления появится новое задание.'},
- {id:'pvp',title:'Победить в PvP',count:today.some(r=>r.mode==='pvp'&&r.won)?1:0,total:1,reward:250,copy:'Одержи одну победу в поединке сегодня.'}
+ {id:'answers10',title:'Ответить на 10 вопросов',count:pve.filter(r=>r.answered).length,total:10,reward:400,copy:'Ответь на десять вопросов сегодня в обычном режиме. Ответы в поединках не учитываются.'}
  ].map(t=>{const period=t.id==='energy100'?week:day,claimId=qzTaskClaimKey(t.id,now,q);return {...t,period,claimId,deadline:period.end,claimed:q.claims.includes(claimId),expired:false};});
 }
 function qzClaimTask(id){if(!flagEnabled('qzTasks'))return false;const t=qzTasks().find(x=>x.id===id);if(!t||t.claimed||t.count<t.total)return false;state.quizi.claims.push(t.claimId);state.quizi.coins+=t.reward;qzSave();return true;}
@@ -1261,12 +1345,12 @@ function qzSprite(name,source,x,y,w,h,cls=''){
 }
 function qzCoin(){return qzSprite('coin','main',362,169,25,27,'qz-coin');}
 function qzClose(back=false){return '<header class="qz-header"><button class="qz-close" data-center-route="center">Закрыть</button><button class="qz-new-game" data-qz-action="new-game">Новая игра</button>'+(back?'<button class="qz-back" data-center-route="quiz" aria-label="Назад в Квизи">'+qzSprite('back','pvp',11,119,13,22)+'</button>':'')+'</header>';}
-function qzHome(){const q=state.quizi;return '<div class="qz-app qz-home" aria-label="Квизи"><main class="qz-home-main">'+qzClose()+
+function qzHome(){const q=state.quizi,hard=qzIsHardLevel();return '<div class="qz-app qz-home" aria-label="Квизи"><main class="qz-home-main">'+qzClose()+
  '<div class="qz-balances"><button data-center-route="quiz/shop" class="qz-wallet" aria-label="Энергия: '+q.energy+'">'+qzSprite('energy','main',40,166,28,32,'qz-energy')+'<b>'+qzNumber(q.energy)+'</b></button><button data-center-route="quiz/tasks" class="qz-wallet" aria-label="Монеты: '+q.coins+'">'+qzCoin()+'<b>'+qzNumber(q.coins)+'</b></button></div>'+
  '<div class="qz-feature-row"><button data-qz-info="broadcast" aria-label="Итоги эфира">'+qzSprite('broadcast','main',51,288,123,150)+'</button><button class="qz-event-tile" '+(flagEnabled('qzBattlePass')?'':'hidden')+' data-center-route="quiz/bp" aria-label="Осенний Battle Pass">'+qzSprite('event','main',189,288,126,150)+'<span class="qz-event-caption">Осенний сезон</span></button><button data-center-route="quiz/pvp" aria-label="Поединки">'+qzSprite('duels','main',329,288,126,150)+'</button></div>'+
  qzSprite('landscape','main',7,438,489,124,'qz-landscape')+
  '<button class="qz-map" data-qz-info="road" aria-label="Шкала уровней и сундуков">'+qzSprite('road','main',37,563,437,43)+'<span class="qz-map-labels"><span>'+String(Math.ceil(q.level/6)*6).padStart(3,'0')+'</span><span>'+String(Math.ceil(q.level/6)*6+6).padStart(3,'0')+'</span></span>'+'</button>'+
- '<button class="qz-level" data-center-route="quiz/level" aria-label="Уровень '+q.level+'. Один вопрос. Случайная категория"><span class="qz-level-stack"></span><strong class="qz-level-number">'+String(q.level).padStart(3,'0')+'</strong>'+qzSprite('console','main',244,683,220,171,'qz-console')+'<span class="qz-level-meta"><span>'+qzSprite('question','main',39,842,20,23)+'Один вопрос</span><span>'+qzSprite('category','main',39,879,20,23)+'Случайная категория</span></span></button>'+
+ '<button class="qz-level" data-center-route="quiz/level" aria-label="Уровень '+q.level+'. '+(hard?'Три вопроса. Категория на выбор':'Один вопрос. Случайная категория')+'"><span class="qz-level-stack"></span><strong class="qz-level-number">'+String(q.level).padStart(3,'0')+'</strong>'+(hard&&flagEnabled('qzDifficulty')?'<span class="qz-level-difficulty"><i></i>Сложный</span>':'')+qzSprite('console','main',244,683,220,171,'qz-console')+'<span class="qz-level-meta"><span>'+qzSprite('question','main',39,842,20,23)+(hard?'Три вопроса':'Один вопрос')+'</span><span>'+qzSprite('category','main',39,879,20,23)+(hard?'Категория на выбор':'Случайная категория')+'</span></span></button>'+
  '</main>'+qzNav('')+'</div>';}
 let qzNotice='';
 function qzGo(route){closeModal('centerDialog');navigate('quiz'+(route?'/'+route:''));renderCenter(true);}
@@ -1278,7 +1362,7 @@ function qzChestArt(){return eventArt('prize-chest','qz-box-art');}
 function qzWallet(){const q=state.quizi;return '<div class="qz-balances"><button class="qz-wallet" data-center-route="quiz/shop" aria-label="Энергия: '+q.energy+'">'+qzEnergy()+'<b>'+qzNumber(q.energy)+'</b></button><button class="qz-wallet" data-center-route="quiz/tasks" aria-label="Монеты: '+q.coins+'">'+qzCoin()+'<b>'+qzNumber(q.coins)+'</b></button></div>';}
 function qzNav(active){const q=state.quizi,notify=flagEnabled('notifications');return '<nav class="qz-nav" aria-label="Разделы Квизи">'+[
  ['', 'Игра','play'],['tasks','Задания','tasks'],['shop','Магазин','shop'],['prizes','Призы','prizes'],['profile','Профиль','profile']
- ].map(([id,label,icon])=>{const attention=notify&&(id==='shop'?q.chests.some(x=>!x.opened):id==='prizes'?q.prizes.some(x=>!x.seen):id==='tasks'?(flagEnabled('qzCommonTasks')&&sharedTaskCatalog().some(t=>sharedTaskStatus(t.id)==='ready')||flagEnabled('qzTasks')&&qzTasks().some(t=>!t.claimed&&t.count>=t.total)):false);return '<button class="attention-target" data-attention="'+attention+'" data-center-route="quiz'+(id?'/'+id:'')+'" '+(active===id?'aria-current="page"':'')+'>'+sharedNavIcon(icon)+'<span>'+label+'</span></button>';}).join('')+'</nav>';}
+ ].map(([id,label,icon])=>{const attention=notify&&(id==='shop'?q.chests.some(x=>!x.opened):id==='prizes'?qzActionablePrizes().some(x=>!x.seen):id==='tasks'?(flagEnabled('qzCommonTasks')&&sharedTaskCatalog().some(t=>sharedTaskStatus(t.id)==='ready')||flagEnabled('qzTasks')&&qzTasks().some(t=>!t.claimed&&t.count>=t.total)):false);return '<button class="attention-target" data-attention="'+attention+'" data-center-route="quiz'+(id?'/'+id:'')+'" '+(active===id?'aria-current="page"':'')+'>'+sharedNavIcon(icon)+'<span>'+label+'</span></button>';}).join('')+'</nav>';}
 
 function qzPage(route,title,body){return '<div class="qz-app qz-page">'+qzClose()+qzWallet()+'<main class="qz-content">'+(title?'<h1>'+title+'</h1>':'')+body+'</main>'+qzNav(route)+'</div>';}
 function qzPvp(){const q=state.quizi;return '<div class="qz-app qz-pvp" aria-label="Поединки Квизи">'+qzClose(true)+
@@ -1286,32 +1370,34 @@ function qzPvp(){const q=state.quizi;return '<div class="qz-app qz-pvp" aria-lab
  '<section class="qz-stakes" aria-label="Выбор взноса"><div class="qz-stakes-caption">Выберите взнос — победа его удвоит <button class="qz-info" data-qz-info="rules" aria-label="Правила поединков">'+qzSprite('info','pvp',278,363,14,14)+'</button></div><div class="qz-stake-options" role="group" aria-label="Взнос">'+QZ_STAKES.map(value=>'<button data-qz-stake="'+value+'" aria-pressed="'+(q.stake===value)+'" aria-label="Взнос '+value+' монет">'+qzCoin()+'<span>'+qzNumber(value)+'</span></button>').join('')+'</div></section>'+
  '<div class="qz-pvp-bottom">'+qzSprite('rays','pvp',1,704,342,33,'qz-rays')+(flagEnabled('qzPvpChest')?'<button class="qz-victory-chest" data-qz-action="pvp-chest"><span class="qz-chest-copy"><strong>Сундук за победы</strong><span class="qz-win-progress" aria-label="Побед: '+Math.min(3,q.chestWins)+' из 3">'+[0,1,2].map(i=>'<i class="'+(i<q.chestWins?'is-won':'')+'"></i>').join('')+'</span><small>'+(q.chestWins>=3?'Забрать сундук':'Нужно '+(3-q.chestWins)+' '+(3-q.chestWins===1?'победу':'победы'))+'</small></span>'+qzSprite('chest','pvp',220,544,110,87,'qz-chest-art')+'</button>':'')+'<button class="qz-play" data-qz-start '+(q.coins<q.stake&&!q.run?'disabled':'')+'>'+(q.run?'Продолжить игру':q.coins<q.stake?'Не хватает монет':'Играть')+'</button>'+(q.coins<q.stake?'<button class="qz-text-btn" data-center-route="quiz/tasks">Получить монеты за задания</button>':'')+'</div></div>';}
 function qzBoosters(sheet=false){const q=state.quizi,r=q.run;return '<div class="qz-boosters '+(sheet?'qz-boosters-sheet':'')+'">'+[['swap','Заменить вопрос'],['freeze','Заморозить время'],['half','Убрать два ответа']].map(([id,title])=>'<button '+(sheet?'data-center-route="quiz/shop"':'data-qz-boost="'+id+'"')+' aria-label="'+title+'. Осталось '+q.boosters[id]+'" '+(!sheet&&(!q.boosters[id]||r?.used.includes(id)||id==='swap'&&!flagEnabled('qzExamples'))?'disabled':'')+'>'+qzBoostArt(id)+'<b class="qz-boost-count">'+q.boosters[id]+'</b>'+(sheet?'<span class="qz-boost-plus">+</span>':'')+'</button>').join('')+'</div>';}
-function qzLevel(){const q=state.quizi;return '<div class="qz-app qz-level-page">'+qzClose()+qzWallet()+'<section class="qz-sheet" aria-label="Уровень '+q.level+'"><div class="qz-handle"></div><button class="qz-sheet-close" data-center-route="quiz" aria-label="Закрыть уровень">×</button><div class="qz-sheet-hero"><strong>'+String(q.level).padStart(3,'0')+'</strong>'+qzSprite('console','main',244,683,220,171,'qz-sheet-console')+'</div><p class="qz-level-line">Один вопрос</p><p class="qz-level-line">Случайная категория</p>'+(q.energy>=6&&flagEnabled('qzBoosters')?qzBoosters(true):'')+(q.energy<6&&!q.run?'<p class="qz-energy-needed">Нужно 6 энергии, чтобы сыграть</p>':'')+'<button class="qz-primary" data-qz-action="pve-start">'+(q.run?'Продолжить игру':q.energy<6?'За энергией':'Играть за 6 энергии')+'</button></section></div>';}
+function qzLevel(){const q=state.quizi,hard=qzIsHardLevel();return '<div class="qz-app qz-level-page"><div class="qz-level-backdrop" aria-hidden="true" inert>'+qzHome()+'</div>'+qzClose()+qzWallet()+'<section class="qz-sheet" aria-label="Уровень '+q.level+'"><div class="qz-handle"></div><button class="qz-sheet-close" data-center-route="quiz" aria-label="Закрыть уровень">×</button><div class="qz-sheet-hero"><strong>'+String(q.level).padStart(3,'0')+'</strong>'+qzSprite('console','main',244,683,220,171,'qz-sheet-console')+'</div>'+(hard&&flagEnabled('qzDifficulty')?'<p class="qz-hard-label"><i></i>Сложный</p>':'')+'<p class="qz-level-line">'+(hard?'Три вопроса':'Один вопрос')+'</p><p class="qz-level-line">'+(hard?'Категория на выбор · сундук за уровень':'Случайная категория')+'</p>'+(q.energy>=6&&flagEnabled('qzBoosters')?qzBoosters(true):'')+(q.energy<6&&!q.run?'<p class="qz-energy-needed">Нужно 6 энергии, чтобы сыграть</p>':'')+'<button class="qz-primary" data-qz-action="pve-start">'+(q.run?'Продолжить игру':q.energy<6?'За энергией':hard?'Выбрать категорию · 6 энергии':'Играть за 6 энергии')+'</button></section></div>';}
+function qzOpenLevel(button){const origin=button?.getBoundingClientRect?.();qzGo('level');const sheet=document.querySelector('.qz-sheet');if(!sheet||!origin||reduced()||!sheet.animate)return;const target=sheet.getBoundingClientRect();sheet.animate([{transform:'translateY('+Math.max(0,origin.top-target.top)+'px)',opacity:.75},{transform:'translateY(0)',opacity:1}],{duration:380,easing:'cubic-bezier(.2,.7,.2,1)'});}
+function qzCategoryChoice(){const r=state.quizi.run;return '<div class="qz-app qz-category-page">'+qzClose()+'<main><span class="qz-kicker">Уровень '+r.level+'</span><h1>Выбери категорию</h1>'+(flagEnabled('qzDifficulty')?'<p class="qz-hard-label"><i></i>Сложный уровень</p>':'')+'<p class="qz-muted">Три верных ответа — и сундук твой</p><div class="qz-category-options">'+QZ_HARD_CATEGORIES.map(c=>'<button data-qz-category="'+c.id+'"><span aria-hidden="true">'+c.icon+'</span><b>'+c.title+'</b><span aria-hidden="true">›</span></button>').join('')+'</div><p class="qz-small qz-muted">Время начнётся после выбора категории</p></main></div>';}
 function qzRound(){const q=state.quizi,r=q.run;if(!r)return qzLevel();if(qzIsRace(r))return qzDuel();const question=qzQuestion();
- if(r.phase==='result')return qzResult();
- if(r.phase==='preview')return '<div class="qz-app qz-prequestion">'+qzClose()+'<main><span class="qz-kicker">'+question.category+'</span><h1>'+(question.hard?'Сложный вопрос':'Лёгкий вопрос')+'</h1><div class="qz-percent">'+question.percent+'<small>%</small></div><p>игроков ответили правильно</p><span class="qz-demo-tag">Демонстрационный процент</span><p class="qz-muted">Время начнётся, когда ты будешь готов</p><button class="qz-primary" data-qz-action="question-start">Начать вопрос</button></main></div>';
+ if(r.phase==='result')return qzResult();if(r.phase==='category')return qzCategoryChoice();
+ if(r.phase==='preview')return '<div class="qz-app qz-prequestion">'+qzClose()+'<main><span class="qz-kicker">'+question.category+'</span><h1>'+(question.hard?'Сложный вопрос':'Вопрос')+'</h1><div class="qz-percent">'+question.percent+'<small>%</small></div><p>игроков ответили правильно</p><span class="qz-demo-tag">Демонстрационный процент</span><p class="qz-muted">Время начнётся, когда ты будешь готов</p><button class="qz-primary" data-qz-action="question-start">Начать вопрос</button></main></div>';
  const feedback=r.phase==='feedback',wrong=feedback&&!r.correct,explain=wrong&&flagEnabled('qzExplanation'),seconds=feedback?r.secondsLeft:Math.max(0,Math.ceil((r.endsAt-Date.now())/1000));
- return '<div class="qz-app qz-question-page '+(feedback?'has-feedback':'')+'">'+qzClose()+'<main class="qz-question-body">'+(r.mode==='pvp'?'<div class="qz-score"><span>Ты <b>'+r.score+'</b></span><small>Демосоперник</small><span><b>'+r.opponentScore+'</b> Соперник</span></div>':'')+'<div class="qz-timer"><div><i data-qz-timebar style="width:'+Math.min(100,seconds/(r.mode==='pvp'?30:20)*100)+'%"></i></div><time data-qz-clock>00:'+String(seconds||0).padStart(2,'0')+'</time></div><section class="qz-question-card '+(explain?'is-explanation':'')+'"><span class="qz-question-category">'+(explain?'Почему так':question.category)+'</span><p>'+(explain?question.why:question.text)+'</p></section><div class="qz-answers">'+question.answers.map((a,i)=>'<button data-qz-answer="'+i+'" '+(feedback||r.hidden.includes(i)?'disabled':'')+' class="'+(feedback?(i===question.correct?'is-correct':i===r.selected?'is-wrong':'is-muted'):r.hidden.includes(i)?'is-hidden':'')+'">'+(r.hidden.includes(i)?'—':a)+'</button>').join('')+'</div>'+(feedback?'<div class="qz-feedback" role="status"><span class="'+(r.correct?'correct':'wrong')+'">'+(r.correct?'✓':'×')+'</span>'+(r.correct?'Верно':r.selected===null?'Время вышло':'Неверно')+'</div><button class="qz-primary" data-qz-action="continue">'+(r.mode==='pvp'?'Следующий вопрос':'Продолжить')+'</button>':r.mode==='pve'&&flagEnabled('qzBoosters')?qzBoosters():r.mode==='pvp'?'<p class="qz-muted qz-pvp-note">30 секунд · одинаковые вопросы · без бустеров</p>':'')+'</main></div>';
+ return '<div class="qz-app qz-question-page '+(feedback?'has-feedback':'')+'">'+qzClose()+'<main class="qz-question-body">'+(qzIsHardRun(r)?'<div class="qz-level-progress"><span>Сложный уровень</span><b>Вопрос '+(r.index+1)+' из 3</b></div>':'')+(r.mode==='pvp'?'<div class="qz-score"><span>Ты <b>'+r.score+'</b></span><small>Демосоперник</small><span><b>'+r.opponentScore+'</b> Соперник</span></div>':'')+'<div class="qz-timer"><div><i data-qz-timebar style="width:'+Math.min(100,seconds/(r.mode==='pvp'?30:20)*100)+'%"></i></div><time data-qz-clock>00:'+String(seconds||0).padStart(2,'0')+'</time></div><section class="qz-question-card '+(explain?'is-explanation':'')+'"><span class="qz-question-category">'+(explain?'Почему так':question.category)+'</span><div class="qz-question-copy">'+(!explain&&question.flag?'<span class="qz-flag" role="img" aria-label="'+question.flagName+'">'+question.flag+'</span>':'')+'<p>'+(explain?question.why:question.text)+'</p></div></section><div class="qz-answers">'+question.answers.map((a,i)=>'<button data-qz-answer="'+i+'" '+(feedback||r.hidden.includes(i)?'disabled':'')+' class="'+(feedback?(i===question.correct?'is-correct':i===r.selected?'is-wrong':'is-muted'):r.hidden.includes(i)?'is-hidden':'')+'">'+(r.hidden.includes(i)?'—':a)+'</button>').join('')+'</div>'+(feedback?'<div class="qz-feedback" role="status"><span class="'+(r.correct?'correct':'wrong')+'">'+(r.correct?'✓':'×')+'</span>'+(r.correct?'Верно':r.selected===null?'Время вышло':'Неверно')+'</div><button class="qz-primary" data-qz-action="continue">'+(r.mode==='pvp'?'Следующий вопрос':'Продолжить')+'</button>':r.mode==='pve'&&flagEnabled('qzBoosters')?qzBoosters():r.mode==='pvp'?'<p class="qz-muted qz-pvp-note">30 секунд · одинаковые вопросы · без бустеров</p>':'')+'</main></div>';
 }
-function qzResult(){const q=state.quizi,r=q.run,pvp=r.mode==='pvp',won=pvp?r.outcome==='win':r.correct;return '<div class="qz-app qz-result '+(won?'is-won':'')+'">'+qzClose()+'<main>'+(won?qzSprite('check','result',207,541,178,177,'qz-check-art'):'<div class="qz-result-symbol">'+(pvp&&r.outcome==='draw'?'=':'×')+'</div>')+'<p>'+(pvp?'Поединок завершён':won?'Уровень пройден':'Попробуй ещё раз')+'</p><h1>'+(pvp?(won?'Победа!':r.outcome==='draw'?'Ничья':'В этот раз сильнее соперник'):won?'Вперёд, к новым<br>свершениям':'Следующий ответ<br>будет лучше')+'</h1>'+(pvp?'<div class="qz-result-score">'+r.score+' : '+r.opponentScore+'</div><p>'+ (r.payout?'На баланс: '+qzNumber(r.payout)+' монет':'Взнос остался в банке соперника')+'</p><small class="qz-muted">Демонстрационный соперник</small>':won&&flagEnabled('qzBattlePass')?'<button class="qz-result-bp" data-qz-action="result-bp">'+qzLeaf()+'<span>+'+(r.awardedPoints||0)+' к сезону<small>Battle Pass · очки: '+q.points+'</small></span></button>':'')+(r.levelGift?'<p>Подарок за 6 уровней уже в «Призах»</p>':'')+'<button class="qz-primary" data-qz-action="continue">'+(pvp?'К поединкам':'К уровням')+'</button></main></div>';}
-function qzTaskCard(t){const row=rmTaskRow({...t,coins:t.reward,reward:'+'+t.reward,art:t.reward>200?'coins-300':'coins-200',description:true,date:t.id==='energy100'?'До '+new Date(t.deadline).toLocaleDateString('ru-RU'):'До конца дня'}, {actionAttrs:'data-qz-task="'+t.id+'"',infoAttrs:'data-qz-task-info="'+t.id+'"'});return row.replace('rm-task-row ','rm-task-row qz-recurring-task ').replace('</article>','<span class="qz-task-repeat">'+recurringTaskIcon(t.period.label)+'</span></article>');}
-function qzTasksPage(){return qzPage('tasks','','<section class="rm-screen qz-tasks"><header class="rm-task-heading"><h1>Задания</h1><p>Выполняй и получай больше наград.<br>Прогресс в игре обновляется сразу</p></header>'+(flagEnabled('qzTasks')?'<h2 class="rm-group-heading">Внутриигровые задания</h2><div class="rm-task-list">'+qzTasks().map(qzTaskCard).join('')+'</div>':'')+(flagEnabled('qzCommonTasks')?'<h2 class="rm-general-heading">Общие задания</h2>'+renderSharedTasks():'')+(!flagEnabled('qzTasks')&&!flagEnabled('qzCommonTasks')?'<p>Задания выключены в настройках прототипа.</p>':'')+'</section>');}
-
-function qzShopCard(p){const art=p.type==='energy'?qzSprite('pack','shop',p.id==='e6'?70:p.id==='e18'?253:441,419,91, 83,'qz-pack-art'):qzBoostArt(p.type);return '<article class="qz-product">'+(p.id==='e24'?'<span class="qz-popular">Популярно</span>':'')+art+(p.type==='energy'?'':'<strong>×'+p.amount+'</strong>')+'<button data-qz-buy="'+p.id+'" aria-label="Купить '+(p.type==='energy'?p.amount+' энергии':p.type==='swap'?'3 замены':p.type==='freeze'?'3 заморозки':'3 бустера 50/50')+' за '+p.cost+' монет">'+qzCoin()+qzNumber(p.cost)+'</button></article>';}
+function qzResult(){const q=state.quizi,r=q.run,pvp=r.mode==='pvp',won=pvp?r.outcome==='win':r.correct;return '<div class="qz-app qz-result '+(won?'is-won':'')+'">'+qzClose()+'<main>'+(won?qzSprite('check','result',207,541,178,177,'qz-check-art'):'<div class="qz-result-symbol">'+(pvp&&r.outcome==='draw'?'=':'×')+'</div>')+'<p>'+(pvp?'Поединок завершён':won?'Уровень пройден':'Попробуй ещё раз')+'</p><h1>'+(pvp?(won?'Победа!':r.outcome==='draw'?'Ничья':'В этот раз сильнее соперник'):won?'Вперёд, к новым<br>свершениям':'Следующий ответ<br>будет лучше')+'</h1>'+(pvp?'<div class="qz-result-score">'+r.score+' : '+r.opponentScore+'</div><p>'+ (r.payout?'На баланс: '+qzNumber(r.payout)+' монет':'Взнос остался в банке соперника')+'</p><small class="qz-muted">Демонстрационный соперник</small>':won&&flagEnabled('qzBattlePass')?'<button class="qz-result-bp" data-qz-action="result-bp">'+qzLeaf()+'<span>+'+(r.awardedPoints||0)+' к сезону<small>Battle Pass · очки: '+q.points+'</small></span></button>':'')+(r.levelChest?'<div class="qz-level-chest">'+qzChestArt()+'<p>Сундук уже в магазине</p></div>':r.levelGift?'<p>Подарок за уровень уже в «Призах»</p>':'')+'<button class="qz-primary" data-qz-action="continue">'+(pvp?'К поединкам':'К уровням')+'</button></main></div>';}
+function qzTaskCard(t){return rmTaskRow({...t,coins:t.reward,reward:'+'+t.reward,art:t.reward>200?'coins-300':'coins-200',description:true,date:t.id==='energy100'?'До '+new Date(t.deadline).toLocaleDateString('ru-RU'):'До конца дня'}, {actionAttrs:'data-qz-task="'+t.id+'"',infoAttrs:'data-qz-task-info="'+t.id+'"'});}
+function qzTasksPage(){return qzPage('tasks','','<section class="rm-screen qz-tasks"><header class="rm-task-heading"><h1>Задания</h1><p>Выполняй и получай больше наград.<br>Прогресс в игре обновляется сразу</p></header>'+(flagEnabled('qzCommonTasks')&&typeof renderPrioritySharedTasks==='function'?renderPrioritySharedTasks():'')+(flagEnabled('qzTasks')?'<h2 class="rm-group-heading qz-recurring-heading">Внутриигровые задания '+recurringTaskIcon('Задания обновляются ежедневно, задание на энергию — раз в 7 дней')+'</h2><div class="rm-task-list">'+qzTasks().map(qzTaskCard).join('')+'</div>':'')+(flagEnabled('qzCommonTasks')?'<h2 class="rm-general-heading">Общие задания</h2>'+renderSharedTasks({excludePriority:true}):'')+(!flagEnabled('qzTasks')&&!flagEnabled('qzCommonTasks')?'<p>Задания выключены в настройках прототипа.</p>':'')+'</section>');}
+function qzShopCard(p){const art=p.type==='energy'?qzSprite('pack','shop',p.id==='e6'?70:p.id==='e18'?253:441,419,91,83,'qz-pack-art'):qzBoostArt(p.type);return '<button class="qz-product" data-qz-buy="'+p.id+'" aria-label="Купить '+(p.type==='energy'?p.amount+' энергии':p.type==='swap'?'3 замены':p.type==='freeze'?'3 заморозки':'3 бустера 50/50')+' за '+p.cost+' монет">'+(p.id==='e24'?'<span class="qz-popular">Популярно</span>':'')+art+(p.type==='energy'?'':'<strong>×'+p.amount+'</strong>')+'<span class="qz-product-price">'+qzCoin()+qzNumber(p.cost)+'</span></button>';}
 function qzShop(){return qzPage('shop','Магазин','<p class="qz-inline-notice" role="status">'+qzNotice+'</p>'+qzChestHub()+(flagEnabled('qzCoinPacks')?gameCoinExchangeHTML('quizi'):'')+'<h2>Энергия</h2><div class="qz-products">'+QZ_SHOP.filter(x=>x.type==='energy').map(qzShopCard).join('')+'</div>'+(flagEnabled('qzBoosters')?'<h2>Бустеры</h2><div class="qz-products">'+QZ_SHOP.filter(x=>x.type!=='energy').map(qzShopCard).join('')+'</div><div class="qz-booster-labels"><span>Замена</span><span>Заморозка</span><span>50/50</span></div>':'')+'<button class="qz-text-btn" data-center-route="quiz/level">Вернуться к уровню</button>');}
-function qzChestHub(){const q=state.quizi,count=q.chests.filter(x=>!x.opened).length;return (flagEnabled('qzChests')||count||q.pendingChest?'<div class="qz-chest-hub"><section class="prize-chest-placement" aria-label="Сундук призов"><div class="prize-chest-top"><h2>Сундук призов</h2><span>Сундуков: '+count+'</span></div>'+eventArt('prize-chest','prize-chest-hero')+'<div class="chest-reward-types" aria-label="50% приз, 30% энергия, 15% монеты, 5% кристаллы"><span>'+art('gift','chest-reward-icon')+'Приз</span><span class="chest-energy-label">'+art('energy','chest-reward-icon')+'Энергия</span><span>'+eventArt('coins-100','chest-reward-icon')+'Монеты</span><span>'+eventArt('hard','chest-reward-icon')+'Кристаллы</span></div><p class="prize-chest-caption">'+(q.pendingChest?'Награда сохранена — посмотри, что выпало':count?'Одна случайная награда за открытие':'За победы в PvP или '+PRIZE_CHEST_COST+' монет')+'</p><button class="primary" data-qz-action="'+(q.pendingChest?'chest-result':'open-chest')+'">'+(q.pendingChest?'Посмотреть награду':count?'Открыть сундук':'Открыть за '+PRIZE_CHEST_COST+' монет')+'</button><div class="prize-chest-bottom"><small>'+(q.pendingChest?'Повторно платить не нужно':count?'Открыть бесплатно':'Монеты тратятся только при открытии')+'</small><button data-qz-info="chances">Что внутри?</button></div></section></div>':'');}
+function qzChestHub(){const q=state.quizi,count=q.chests.filter(x=>!x.opened).length;return (flagEnabled('qzChests')||count||q.pendingChest?'<div class="qz-chest-hub"><section class="prize-chest-placement" aria-label="Сундук призов"><div class="prize-chest-top"><h2>Сундук призов</h2><span>Сундуков: '+count+'</span></div>'+eventArt('prize-chest','prize-chest-hero')+'<div class="chest-reward-types" aria-label="50% приз, 30% энергия, 15% монеты, 5% кристаллы"><span>'+art('gift','chest-reward-icon')+'Приз</span><span class="chest-energy-label">'+art('energy','chest-reward-icon')+'Энергия</span><span>'+eventArt('coins-100','chest-reward-icon')+'Монеты</span><span>'+eventArt('hard','chest-reward-icon')+'Кристаллы</span></div><p class="prize-chest-caption">'+(q.pendingChest?'Награда сохранена — посмотри, что выпало':count?'Одна случайная награда за открытие':'За сложные уровни, победы в PvP или '+PRIZE_CHEST_COST+' монет')+'</p><button class="primary" data-qz-action="'+(q.pendingChest?'chest-result':'open-chest')+'">'+(q.pendingChest?'Посмотреть награду':count?'Открыть сундук':'Открыть за '+PRIZE_CHEST_COST+' монет')+'</button><div class="prize-chest-bottom"><small>'+(q.pendingChest?'Повторно платить не нужно':count?'Открыть бесплатно':'Монеты тратятся только при открытии')+'</small><button data-qz-info="chances">Что внутри?</button></div></section></div>':'');}
 
-function qzPrizeRows(){return state.quizi.prizes.slice().reverse().map(item=>{const p=chestProduct(item.productId);if(!p)return '';return '<button class="qz-prize-row attention-target" data-attention="'+(flagEnabled('notifications')&&!item.seen)+'" data-qz-prize="'+item.id+'">'+eventArt(p.art)+'<span><b>'+p.title+'</b><small>'+(p.energy||p.coins||p.hard?'Начислено':item.used?'Использовано в демо':'Доступно')+'</small></span><span>›</span></button>';}).join('');}
-function qzPrizes(){return qzPage('prizes','Призы','<h2>Уже у вас</h2>'+(qzPrizeRows()||'<p class="qz-muted">Здесь появятся подарки за уровни и награды из сундуков</p>'));}
+function qzActionablePrizes(){return state.quizi.prizes.filter(item=>{const p=chestProduct(item.productId);return p&&!isChestCurrency(p)&&(typeof prizeActionable==='function'?prizeActionable(item):!item.used);});}
+function qzPrizeRows(){return qzActionablePrizes().slice().reverse().map(item=>{const p=chestProduct(item.productId);return '<button class="qz-prize-row attention-target" data-attention="'+(flagEnabled('notifications')&&!item.seen)+'" data-qz-prize="'+item.id+'">'+eventArt(p.art)+'<span><b>'+p.title+'</b><small>Перейти к партнёру</small></span><span>›</span></button>';}).join('');}
+function qzPrizes(){return qzPage('prizes','Призы','<h2>Уже у вас</h2>'+(qzPrizeRows()||'<p class="qz-muted">Здесь появятся предложения, которые можно использовать у партнёров</p>'));}
 
 function qzBattlePass(){const q=state.quizi;return qzPage('','Осенний сезон',flagEnabled('qzBattlePass')?'<section class="qz-bp-hero">'+qzLeaf()+'<h2>Battle Pass</h2><p>'+q.points+' очков сезона</p><p class="qz-muted">Проходи уровни и открывай сундуки</p></section><div class="qz-bp-list">'+[1,2,3,4,5].map(n=>'<article><strong>'+n*q.config.bpStep+' очков</strong><span>'+eventArt('coins-300')+'+'+q.config.bpCoins+'</span><button data-qz-bp="'+n+'" '+(q.bpClaims.includes(n)||q.points<n*q.config.bpStep?'disabled':'')+'>'+(q.bpClaims.includes(n)?'Получено':q.points>=n*q.config.bpStep?'Забрать':'Закрыто')+'</button></article>').join('')+'</div><p class="qz-muted qz-small">Демонстрационная шкала. Награды и шаг настраиваются в профиле.</p>':'<p>Battle Pass выключен в настройках прототипа.</p>');}
 function qzProfile(){const q=state.quizi;return qzPage('profile','',qzSprite('friends','profile',151,188,309,168,'qz-friends')+'<h1 class="qz-centered">Приглашайте друзей</h1><p class="qz-muted qz-centered">И получайте монеты, которые пригодятся в игре</p><div class="qz-friend-cards"><article><h3>500 монет</h3><p>За возвращение<br>друга в игру</p>'+qzSprite('coins','profile',123,634,130,142)+'</article><article><h3>1 000 монет</h3><p>За приглашение<br>нового друга</p>'+qzSprite('coins','profile',394,640,146,157)+'</article></div><button class="qz-primary" data-qz-info="invite">Пригласить друга</button><button class="qz-user-id" data-qz-info="id"><b>ID пользователя</b><span>QUIZI-DEMO</span></button><section class="qz-profile-tools" aria-label="Управление прототипом"><h2>Управление прототипом</h2><button class="qz-profile-action" data-qz-action="grant-resources"><span>Начислить валюту<small>Монеты, энергия и кристаллы</small></span><span aria-hidden="true">＋</span></button><button class="qz-profile-action" data-qz-action="new-game"><span>Новая игра<small>Начать Квизи заново</small></span><span aria-hidden="true">↺</span></button></section><details class="qz-settings"><summary>Настройки прототипа</summary><p class="qz-muted">Переключатели работают в игровом потоке и сохраняются, как в «5 букв».</p>'+QZ_FEATURES.map(f=>'<button role="switch" aria-checked="'+flagEnabled(f.id)+'" class="feature-flag" data-qz-flag="'+f.id+'"><span class="feature-flag-copy"><b>'+f.label.replace('Квизи · ','')+'</b><small>'+f.caption+'</small></span><span class="feature-switch" aria-hidden="true"></span></button>').join('')+'<h3>Проверить состояния</h3><div class="qz-debug"><button data-qz-debug="empty">Энергия: 4</button><button data-qz-debug="energy">+100 энергии</button><button data-qz-debug="chest">+1 сундук</button><button data-qz-debug="wins">PvP: 3 победы</button></div><button class="qz-text-btn" data-qz-action="config">Баланс демо</button><p class="qz-muted qz-small">Проверочные кнопки меняют только ресурсы прототипа. Они не выполняют задания.</p></details>');}
 function renderQuizi(){const route=location.hash.split('/')[1]||'';if(route==='pvp')return qzPvp();if(route==='level')return qzLevel();if(route==='round')return qzRound();if(route==='tasks')return qzTasksPage();if(route==='shop')return qzShop();if(route==='prizes')return qzPrizes();if(route==='profile')return qzProfile();if(route==='bp')return qzBattlePass();return qzHome();}
 function qzSelect(kind,value){if(kind==='stake'&&QZ_STAKES.includes(Number(value)))state.quizi.stake=Number(value);else if(kind==='opponent'&&['random','friend'].includes(value))state.quizi.opponent=value;else return false;qzSave();return true;}
-function qzInformation(id){if(id==='chances'){showChestContents();return;}const contents={rules:['Правила поединка','Одинаковые вопросы, 30 секунд. Больше правильных ответов — победа и обе ставки. При ничьей каждый получает свою ставку. Комиссии нет. В прототипе — демосоперник.'],chest:['Сундук за победы','Победи три раза, забери сундук здесь и открой его в «Магазине».'],road:['Подарки за уровни','За каждый шестой пройденный уровень в «Призах» появляется партнёрское предложение. В прототипе это демонстрационные предложения.'],broadcast:['Итоги эфира','Экран события ещё не предоставлен. Здесь сохранена карточка из референса.'],chances:['Содержимое сундука','Как в текущем прототипе «5 букв»: 50% — предложение, 30% — энергия, 15% — монеты, 5% — кристаллы. Кристаллы общие для Game Center, остальные ресурсы — для Квизи. Это демонстрационный состав.'],invite:['Приглашение друзей','На референсе: 500 монет за возвращение друга и 1 000 за нового. В локальном прототипе отправка приглашений и проверка друзей не подключены.'],id:['ID пользователя','QUIZI-DEMO — локальный идентификатор прототипа.'],energy:['Энергия','Один уровень стоит 6 энергии. Купить энергию за монеты можно в магазине.'],coins:['Монеты','Монеты Квизи хранятся отдельно от «5 букв».'],level:['Уровень','Один вопрос. Вход — 6 энергии.']}[id];if(contents)qzDialog(contents[0],'<p>'+contents[1]+'</p><button class="primary" data-qz-dismiss>Понятно</button>');}
+function qzInformation(id){if(id==='chances'){showChestContents();return;}const contents={rules:['Правила поединка','Одинаковые вопросы, 30 секунд. Больше правильных ответов — победа и обе ставки. При ничьей каждый получает свою ставку. Комиссии нет. В прототипе — демосоперник.'],chest:['Сундук за победы','Победи три раза, забери сундук здесь и открой его в «Магазине».'],road:['Подарки за уровни','Каждый шестой уровень — сложный: выбери одну из трёх категорий и правильно ответь на три вопроса. Сундук за прохождение ждёт в магазине.'],broadcast:['Итоги эфира','Экран события ещё не предоставлен. Здесь сохранена карточка из референса.'],chances:['Содержимое сундука','Как в текущем прототипе «5 букв»: 50% — предложение, 30% — энергия, 15% — монеты, 5% — кристаллы. Кристаллы общие для Game Center, остальные ресурсы — для Квизи. Это демонстрационный состав.'],invite:['Приглашение друзей','На референсе: 500 монет за возвращение друга и 1 000 за нового. В локальном прототипе отправка приглашений и проверка друзей не подключены.'],id:['ID пользователя','QUIZI-DEMO — локальный идентификатор прототипа.'],energy:['Энергия','Один уровень стоит 6 энергии. Купить энергию за монеты можно в магазине.'],coins:['Монеты','Монеты Квизи хранятся отдельно от «5 букв».'],level:['Уровень','Обычно — один вопрос. Каждый шестой уровень — три вопроса в категории на выбор и сундук за прохождение. Вход на весь уровень — 6 энергии.']}[id];if(contents)qzDialog(contents[0],'<p>'+contents[1]+'</p><button class="primary" data-qz-dismiss>Понятно</button>');}
 function qzShowCommon(id){if(!flagEnabled('qzCommonTasks'))return;showSharedTask(id);}
 
-function qzShowPrize(id){if(id&&id===state.quizi.pendingChest){qzShowChestResult(id);return;}const q=state.quizi,item=q.prizes.find(x=>x.id===id),p=item&&chestProduct(item.productId);if(!p)return;if(!item.seen){item.seen=true;qzSave();}const resource=p.energy||p.coins||p.hard;qzDialog(p.title,eventArt(p.art,'gc-dialog-art')+'<p>'+(resource?'Награда уже начислена '+(p.hard?'на общий баланс Game Center.':'в Квизи.'):'Демонстрационное партнёрское предложение. Реальная активация не подключена.')+'</p>'+(id===q.pendingChest?'<button class="primary" data-qz-action="ack-chest">Забрать</button>':resource||item.used?'<button class="primary" data-qz-dismiss>Готово</button>':'<button class="primary" data-qz-use="'+item.id+'">Использовать в демо</button>'));}
+function qzShowPrize(id){if(id&&id===state.quizi.pendingChest){qzShowChestResult(id);return;}const item=qzActionablePrizes().find(x=>x.id===id),p=item&&chestProduct(item.productId);if(!p)return false;if(!item.seen){item.seen=true;qzSave();}const url=typeof partnerPrizeUrl==='function'?partnerPrizeUrl(p):({plates:'https://www.tbank.ru/',premium:'https://www.tbank.ru/premium/',learning:'https://t-j.ru/pro/',cinema:'https://start.ru/'}[p.id]||'https://www.tbank.ru/');qzDialog(p.title,eventArt(p.art,'gc-dialog-art')+'<p>'+p.description+'</p><a id="qzPartnerLink" class="primary qz-partner-link" href="'+url+'" target="_blank" rel="noopener noreferrer">Перейти на сайт</a><p class="qz-muted">Откроется сайт партнёра. Реальная активация предложения в демо не подключена.</p>');$('qzPartnerLink').onclick=()=>{item.used=true;qzSave();closeModal('centerDialog');};return true;}
 function qzShowConfig(){const labels={levelPoints:'Очков за уровень',chestPoints:'Очков за сундук',bpStep:'Шаг Battle Pass, очки',bpCoins:'Монет за шаг BP',freezeSeconds:'Заморозка, секунд'};qzDialog('Баланс демо','<p>Эти значения — допущения прототипа. Новые значения применяются к будущим операциям.</p><form id="qzConfigForm" class="gc-form">'+Object.entries(labels).map(([id,label])=>'<label>'+label+'<input name="'+id+'" type="number" min="1" max="100000" required value="'+state.quizi.config[id]+'"></label>').join('')+'<button class="primary" type="submit">Сохранить</button></form>');$('qzConfigForm').onsubmit=e=>{e.preventDefault();const next={...state.quizi.config};for(const key of Object.keys(labels)){const n=Number(e.target.elements[key].value);if(!Number.isSafeInteger(n)||n<1||n>100000)return;next[key]=n;}state.quizi.config=next;qzSave();closeModal('centerDialog');};}
 function qzShowTaskInfo(id){const t=qzTasks().find(x=>x.id===id);if(t)qzDialog(t.title,'<p>'+t.copy+'</p><p class="rm-info-reward">Награда: '+t.reward+' монет</p><button class="primary" data-qz-dismiss>Понятно</button>');}
 function qzShowReset(){qzDialog('Начать новую игру?','<p>Сбросим уровни, игровые задания, PvP, Battle Pass, сундуки и награды Квизи. На старте — 24 энергии и 10 000 монет.</p><p class="qz-muted">«5 букв», общие задания и кристаллы Game Center сохранятся. Настройки прототипа тоже останутся.</p><button class="primary" data-qz-action="confirm-reset">Начать заново</button><button class="secondary" data-qz-dismiss>Отмена</button>');}
@@ -1333,7 +1419,7 @@ async function qzRevealChest(){
  finally{animation?.cancel();qzRevealBusy=false;if(state.quizi===q&&q.pendingChest===id&&$('centerDialog').open&&track.isConnected)qzShowChestResult(id);}
  return true;
 }
-function handleQuiziClick(button){const d=button.dataset,q=state.quizi;
+function handleQuiziClick(button){const d=button.dataset,q=state.quizi;if(d.centerRoute==='quiz/level'){qzOpenLevel(button);return true;}if(d.qzCategory){qzChooseCategory(d.qzCategory);return true;}
  if(button.hasAttribute('data-qz-dismiss')){closeModal('centerDialog');return true;}
  if(d.qzStake)return qzSelect('stake',d.qzStake);if(d.qzOpponent)return qzSelect('opponent',d.qzOpponent);
  if(d.qzInfo){qzInformation(d.qzInfo);return true;}if(button.hasAttribute('data-qz-start')){qzStart();return true;}
@@ -1344,7 +1430,7 @@ function handleQuiziClick(button){const d=button.dataset,q=state.quizi;
  if(d.qzCommonVerify){if(flagEnabled('qzCommonTasks')){completeSharedTask(d.qzCommonVerify);qzSave();qzShowCommon(d.qzCommonVerify);}return true;}
  if(d.qzCommonClaim){qzCommonClaim(d.qzCommonClaim);closeModal('centerDialog');return true;}
  if(d.qzBuy){const item=QZ_SHOP.find(x=>x.id===d.qzBuy);qzNotice=qzBuyItem(d.qzBuy)?'Получено: '+item.amount+' '+(item.type==='energy'?'энергии':'бустера'):'Не хватает монет. Загляни в задания.';renderCenter(true);return true;}
- if(d.qzBp){qzClaimBp(Number(d.qzBp));return true;}if(d.qzPrize){qzShowPrize(d.qzPrize);return true;}if(d.qzUse){const p=q.prizes.find(x=>x.id===d.qzUse);if(p)p.used=true;qzSave();qzShowPrize(d.qzUse);return true;}
+ if(d.qzBp){qzClaimBp(Number(d.qzBp));return true;}if(d.qzPrize){qzShowPrize(d.qzPrize);return true;}if(d.qzUse){const p=q.prizes.find(x=>x.id===d.qzUse);if(p)p.used=true;qzSave();closeModal('centerDialog');return true;}
  if(d.qzFlag){const open=document.querySelector('.qz-settings')?.open;setFeatureFlag(d.qzFlag,!flagEnabled(d.qzFlag));renderCenter(true);if(open){const el=document.querySelector('.qz-settings');if(el)el.open=true;}return true;}
  if(d.qzDebug){if(d.qzDebug==='empty')q.energy=4;if(d.qzDebug==='energy')q.energy+=100;if(d.qzDebug==='chest')q.chests.push({id:qzId('debug-chest'),source:'debug',opened:false});if(d.qzDebug==='wins')q.chestWins=3;qzSave();const el=document.querySelector('.qz-settings');if(el)el.open=true;return true;}
  if(d.qzConfirmCoins){const ok=qzBuyCoins(d.qzConfirmCoins);if(ok)qzDialog('Монеты на балансе','<p>Демонстрационная покупка завершена. Реальные деньги не списаны.</p><button class="primary" data-qz-dismiss>Готово</button>');return true;}
@@ -1374,7 +1460,7 @@ const SHARED_TASKS=Object.freeze([
  {id:'partner-order',title:'Первая покупка у партнёра',copy:'Сделай заказ от 1 000 ₽',reward:80,icon:'▣'},
  {id:'bank-saving',title:'Пополнить накопительный счёт',copy:'На 10 000 ₽ в приложении Т-Банка',reward:60,icon:'₽'},
  {id:'black-main',title:'Сделай Black основной картой',copy:'Выбери Black основной картой в приложении Т-Банка',reward:120,icon:'▰'},
- {id:'avito',title:'Сохрани объявление',copy:'Сохрани объявление в Авито. После получения награды откроется доступ к партнёрскому розыгрышу.',reward:50,icon:'●',partner:'avito'}
+ {id:'avito',title:'Сохрани объявление',copy:'Сохрани объявление в Авито. После получения награды откроется доступ к партнёрскому розыгрышу.',reward:50,icon:'●',partner:'avito',unlocksRaffle:true}
 ].map(Object.freeze));
 const CRYSTAL_PACKS=Object.freeze([
  {id:'10',base:10,crystals:10,cost:1},
@@ -1469,6 +1555,21 @@ function exchangeGameCoins(game,packId,token){
  save();return {ok:true,cost:pack.hard,coins:pack.coins,game};
 }
 
+// Only offers awaiting an action belong in the prize inbox; reward ledgers stay intact.
+function prizeActionable(item,now=Date.now()){
+ return !!item&&!item.used&&!(Number.isFinite(item.expiresAt)&&item.expiresAt<=now);
+}
+function partnerPrizeUrl(product={}){
+ const key=(String(product.id||'')+' '+String(product.title||'')).toLowerCase();
+ if(/avito|авито/.test(key))return 'https://www.avito.ru/';
+ if(/перекр|perekrestok/.test(key))return 'https://www.perekrestok.ru/';
+ if(/cinema|start|кино/.test(key))return 'https://start.ru/';
+ if(/learning|учебник|курсы|обуч/.test(key))return 'https://t-j.ru/';
+ return 'https://www.tbank.ru/';
+}
+
+function partnerPrizeURL(product){return partnerPrizeUrl(product);}
+
 // Shared presentation: three task entry points, one reward state; game wallets stay local.
 function sharedNavIcon(name){
  const paths={play:'M9 5 4 8v8l5 3h6l5-3V8l-5-3H9ZM9 9v6l6-3-6-3Z',tasks:'M9 4H5v17h14V4h-4M9 3h6v4H9V3ZM8 12l2 2 5-4M8 18h7',shop:'M4 9h16l-2-6H6L4 9ZM5 10v11h14V10M9 21v-7h6v7M4 9a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0',prizes:'M3 8h18v5H3V8ZM5 13v8h14v-8M12 8v13M12 8C6 8 5 5 7 3c2-2 5 2 5 5ZM12 8c6 0 7-3 5-5-2-2-5 2-5 5Z',profile:'M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-3a8 8 0 0 1 16 0v3H4Z'};
@@ -1476,28 +1577,48 @@ function sharedNavIcon(name){
 }
 function recurringTaskIcon(label){return '<span class="shared-recurring" title="'+escapeHTML(label||'Задание обновляется')+'" aria-label="'+escapeHTML(label||'Задание обновляется')+'"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h13l-3-3m3 3-3 3M17 14H4l3 3m-3-3 3-3"/></svg></span>';}
 function cashbackIcon(amount){return '<span class="shared-cashback" aria-label="'+amount+' кэшбэка"><img src="'+QZ_ART.crown+'" alt="">'+amount+'</span>';}
-function renderSharedTasks(){return '<div class="rm-task-list shared-task-list">'+sharedTaskCatalog().map(t=>{
- const status=sharedTaskStatus(t.id);return rmTaskRow({id:t.id,title:t.title,brand:t.partner,description:t.copy||t.description||t.title,art:'hard',reward:'+'+t.reward,ready:status==='ready',claimed:status==='claimed',date:'Общее задание'}, {actionAttrs:'data-shared-task="'+t.id+'"',infoAttrs:'data-shared-task="'+t.id+'"',readyLabel:'Забрать кристаллы',rewardLabel:status==='claimed'?'Награда получена':t.reward+' кристаллов'});
-}).join('')+'</div>';}
+function renderSharedTasks(options={}){
+ const tasks=sharedTaskCatalog().filter(t=>options.priorityOnly?!!t.unlocksRaffle:options.excludePriority?!t.unlocksRaffle:true).slice().sort((a,b)=>Number(!!b.unlocksRaffle)-Number(!!a.unlocksRaffle));
+ return '<div class="rm-task-list shared-task-list">'+tasks.map(t=>{
+  const status=sharedTaskStatus(t.id);return '<div id="shared-task-'+t.id+'" class="shared-task-anchor" data-shared-task-anchor="'+t.id+'">'+rmTaskRow({id:t.id,title:t.title,brand:t.partner,description:t.copy||t.description||t.title,art:'hard',reward:'+'+t.reward,ready:status==='ready',claimed:status==='claimed',date:t.unlocksRaffle?'Доступ к розыгрышу':'Общее задание'}, {actionAttrs:'data-shared-task="'+t.id+'"',infoAttrs:'data-shared-task="'+t.id+'"',readyLabel:'Забрать кристаллы',rewardLabel:status==='claimed'?'Награда получена':t.reward+' кристаллов'})+'</div>';
+ }).join('')+'</div>';
+}
+function renderPrioritySharedTasks(){return '<section class="shared-priority-tasks"><h2>Доступ к розыгрышу</h2>'+renderSharedTasks({priorityOnly:true})+'</section>';}
+function navigateToSharedTask(id,route='tasks'){
+ if(!sharedTaskCatalog().some(t=>t.id===id)||busy)return false;
+ if($('centerDialog').open)closeModal('centerDialog');
+ navigate(route);
+ const reveal=()=>{
+  const host=route==='tasks'?$('roadmapContent'):$('centerContent'),target=host?.querySelector('[data-shared-task-anchor="'+id+'"]');
+  if(!target)return;target.scrollIntoView({behavior:reduced()?'auto':'smooth',block:'center'});target.classList.add('shared-task-focus');setTimeout(()=>target.classList.remove('shared-task-focus'),1800);
+ };
+ if(typeof requestAnimationFrame==='function')requestAnimationFrame(()=>requestAnimationFrame(reveal));else setTimeout(reveal,0);
+ return true;
+}
+function paintSharedBalances(){
+ $('hardBalance').textContent=hardBalance();
+ const wallet=$('outerHeader')?.querySelector('[data-center-action="wallet"]');
+ if(wallet){wallet.innerHTML=hardIcon(hardBalance());wallet.setAttribute('aria-label','Кристаллы Game Center: '+hardBalance());}
+}
 function refreshSharedSurfaces(){
  centerRenderKey='';roadmapMarkup='';paintCoinBalance();render();
  if(view==='center')renderCenter(true);if(view==='roadmap')renderRoadmap();if(view==='prizes')renderPrizes();
- renderCenterNotifications();roadmapNotifications();
+ paintSharedBalances();renderCenterNotifications();roadmapNotifications();
 }
 function showSharedTask(id){
  const t=sharedTaskCatalog().find(x=>x.id===id);if(!t)return;const status=sharedTaskStatus(id);
  centerModal('<h2 id="centerDialogTitle">'+escapeHTML(t.title)+'</h2><p>'+escapeHTML(t.copy||t.description||'Выполни действие у партнёра')+'</p><div class="shared-task-award">'+hardIcon('+'+t.reward)+'</div>'+(id==='avito'?'<p class="small-demo">Выполнение также открывает доступ к покупке билетов в розыгрыше Авито.</p>':'')+'<p class="small-demo">Демо: кнопка имитирует выполнение задания.</p><button class="primary" '+(status==='claimed'?'data-close="centerDialog"':status==='ready'?'data-shared-claim="'+id+'"':'data-shared-complete="'+id+'"')+'>'+(status==='claimed'?'Получено':status==='ready'?'Забрать кристаллы':'Выполнить')+'</button>');
 }
 function sharedCrystalShop(){return '<h1>Магазин</h1><p class="gc-subtitle">Кристаллы за кэшбэк</p><div class="shared-wallets"><span><small>Кэшбэк</small>'+cashbackIcon(cashbackBalance())+'</span><span><small>Кристаллы</small>'+hardIcon(hardBalance())+'</span></div><div class="shared-pack-grid">'+CRYSTAL_PACKS.map(p=>{
- const bonus=Math.round((p.crystals/p.base-1)*100);return '<article class="shared-pack '+(bonus?'has-bonus':'')+'">'+(bonus?'<span class="shared-pack-bonus">+'+bonus+'%</span>':'')+'<img class="shared-pack-gem" src="'+GC_GEM+'" alt=""><div class="shared-pack-value">'+(bonus?'<del>'+p.base+'</del>':'')+'<strong>'+p.crystals.toLocaleString('ru-RU')+'</strong></div><small>кристаллов</small><button class="shared-price" data-crystal-pack="'+p.id+'" aria-label="Обменять '+p.cost+' кэшбэка на '+p.crystals+' кристаллов">'+cashbackIcon(p.cost)+'</button></article>';
+ const bonus=Math.round((p.crystals/p.base-1)*100);return '<button type="button" class="shared-pack '+(bonus?'has-bonus':'')+'" data-crystal-pack="'+p.id+'" aria-label="Обменять '+p.cost+' кэшбэка на '+p.crystals+' кристаллов">'+(bonus?'<span class="shared-pack-bonus">+'+bonus+'%</span>':'')+'<img class="shared-pack-gem" src="'+GC_GEM+'" alt=""><span class="shared-pack-value">'+(bonus?'<del>'+p.base+'</del>':'')+'<strong>'+p.crystals.toLocaleString('ru-RU')+'</strong></span><small>кристаллов</small><span class="shared-price">'+cashbackIcon(p.cost)+'</span></button>';
 }).join('')+'</div><p class="gc-note">Бонус уже включён в пакет. Обмен в прототипе использует демонстрационный баланс.</p>';}
 function gameCoinExchangeHTML(game){
- return '<section class="shared-game-exchange"><div class="shared-section-heading"><h2>Монеты за кристаллы</h2>'+hardIcon(hardBalance())+'</div><div class="shared-coin-grid">'+GAME_COIN_PACKS.map((p,i)=>'<article class="shared-coin-pack">'+eventArt('coins-'+(i===0?'100':i===1?'200':'300'))+'<strong>'+p.coins.toLocaleString('ru-RU')+'</strong><small>монет</small><button data-game-exchange="'+game+'" data-pack="'+p.id+'" aria-label="'+p.coins+' монет за '+p.hard+' кристаллов">'+hardIcon(p.hard)+'</button></article>').join('')+'</div><p class="shared-exchange-note">Монеты поступят в '+(game==='quizi'?'Квизи':'«5 букв»')+'</p></section>';
+ return '<section class="shared-game-exchange"><div class="shared-section-heading"><h2>Монеты за кристаллы</h2>'+hardIcon(hardBalance())+'</div><div class="shared-coin-grid">'+GAME_COIN_PACKS.map((p,i)=>'<button type="button" class="shared-coin-pack" data-game-exchange="'+game+'" data-pack="'+p.id+'" aria-label="'+p.coins+' монет за '+p.hard+' кристаллов">'+eventArt('coins-'+(i===0?'100':i===1?'200':'300'))+'<strong>'+p.coins.toLocaleString('ru-RU')+'</strong><small>монет</small><span class="shared-coin-price">'+hardIcon(p.hard)+'</span></button>').join('')+'</div><p class="shared-exchange-note">Монеты поступят в '+(game==='quizi'?'Квизи':'«5 букв»')+'</p></section>';
 }
 let sharedPurchasePending=null;
-function openSharedPurchase(kind,id,game){
+function openSharedPurchase(kind,id,game,origin){
  const p=(kind==='crystals'?CRYSTAL_PACKS:GAME_COIN_PACKS).find(x=>x.id===id);if(!p)return;
- sharedPurchasePending={kind,id,game,token:eventId('shared-exchange')};
+ sharedPurchasePending={kind,id,game,token:eventId('shared-exchange'),origin:origin?.getBoundingClientRect()};
  const enough=kind==='crystals'?cashbackBalance()>=p.cost:hardBalance()>=p.hard;
  centerModal((kind==='crystals'?'<img class="gc-dialog-art" src="'+GC_GEM+'" alt="">':eventArt('coins-300','gc-dialog-art'))+'<h2 id="centerDialogTitle">'+(kind==='crystals'?p.crystals+' кристаллов':p.coins+' монет для '+(game==='quizi'?'Квизи':'«5 букв»'))+'</h2><p>Стоимость: '+(kind==='crystals'?cashbackIcon(p.cost):hardIcon(p.hard))+'</p><button class="primary" data-shared-confirm '+(!enough?'disabled':'')+'>'+(enough?'Обменять':kind==='crystals'?'Недостаточно кэшбэка':'Недостаточно кристаллов')+'</button>'+(!enough?'<button class="secondary" data-center-route="'+(kind==='crystals'?'center-profile':'center-shop')+'">'+(kind==='crystals'?'В профиль':'Пополнить кристаллы')+'</button>':'')+'<p class="small-demo">Демонстрационный обмен</p>');
 }
@@ -1507,15 +1628,15 @@ function handleSharedClick(button){
  if(d.sharedTask){showSharedTask(d.sharedTask);return true;}
  if(d.sharedComplete){completeSharedTask(d.sharedComplete);refreshSharedSurfaces();showSharedTask(d.sharedComplete);return true;}
  if(d.sharedClaim){if(claimSharedTask(d.sharedClaim)){refreshSharedSurfaces();showSharedTask(d.sharedClaim);}return true;}
- if(d.crystalPack){openSharedPurchase('crystals',d.crystalPack);return true;}
- if(d.gameExchange){openSharedPurchase('coins',d.pack,d.gameExchange);return true;}
+ if(d.crystalPack){openSharedPurchase('crystals',d.crystalPack,undefined,button);return true;}
+ if(d.gameExchange){openSharedPurchase('coins',d.pack,d.gameExchange,button);return true;}
  if(button.hasAttribute('data-shared-confirm')){
   const pending=sharedPurchasePending;if(!pending)return true;
   const result=pending.kind==='crystals'?buyCrystalPack(pending.id,pending.token):exchangeGameCoins(pending.game,pending.id,pending.token);
   if(!result.ok){$('centerDialogStatus').textContent='Обмен недоступен. Проверь баланс.';return true;}
-  sharedPurchasePending=null;refreshSharedSurfaces();
+  sharedPurchasePending=null;closeModal('centerDialog');refreshSharedSurfaces();
   const p=(pending.kind==='crystals'?CRYSTAL_PACKS:GAME_COIN_PACKS).find(x=>x.id===pending.id);
-  centerModal('<h2 id="centerDialogTitle">На балансе</h2><div class="shared-task-award">'+(pending.kind==='crystals'?hardIcon('+'+p.crystals):eventArt('coins-300','gc-dialog-art')+'<strong>+'+p.coins+' монет</strong>')+'</div><p>'+ (pending.kind==='crystals'?'Кристаллы доступны в обеих играх.':'Монеты добавлены в '+(pending.game==='quizi'?'Квизи':'«5 букв»')+'.')+'</p><button class="primary" data-close="centerDialog">Готово</button>');return true;
+  showSharedCredit(pending,p);return true;
  }
  return false;
 }
@@ -1525,6 +1646,22 @@ function mountSharedNav(){
  }
  const names={'center':'play','center-tasks':'tasks','center-shop':'shop','center-prizes':'prizes','center-profile':'profile'};
  for(const el of document.querySelectorAll('#centerNav [data-center-route]')){const label=el.querySelector('span:last-child')?.textContent||el.textContent;el.innerHTML=sharedNavIcon(names[el.dataset.centerRoute])+'<span>'+label+'</span>';}
+}
+
+let sharedCreditTimer=null,sharedCreditSequence=0;
+function showSharedCredit(pending,pack){
+ const crystals=pending.kind==='crystals',amount=crystals?pack.crystals:pack.coins,unit=crystals?'кристаллов':'монет',balance=crystals?hardBalance():pending.game==='quizi'?state.quizi.coins:coinBalance(),toast=$('eventToast'),sequence=++sharedCreditSequence;
+ clearTimeout(sharedCreditTimer);
+ document.body.append(toast);toast.classList.add('shared-credit-toast');
+ const icon=crystals?'<img src="'+GC_GEM+'" alt="">':eventArt('coins-100');
+ toast.innerHTML=icon+'<span><b data-credit-count>+'+amount+' '+unit+'</b><small>На балансе: '+balance.toLocaleString('ru-RU')+'</small></span>';
+ const target=crystals?(view==='center'&&centerPage!=='quiz'?$('outerHeader')?.querySelector('[data-center-action="wallet"]'):$('openHard')):pending.game==='quizi'?document.querySelector('.qz-balances .qz-wallet[data-center-route="quiz/tasks"]'):$('openCoins');
+ animateWalletReward(icon,pending.origin,target);
+ if(!reduced()&&typeof requestAnimationFrame==='function'){
+  const start=performance.now(),counter=toast.querySelector('[data-credit-count]');
+  const step=now=>{if(sequence!==sharedCreditSequence)return;const t=Math.min(1,(now-start)/760);counter.textContent='+'+Math.round(amount*(1-Math.pow(1-t,3)))+' '+unit;if(t<1)requestAnimationFrame(step);};requestAnimationFrame(step);
+ }
+ sharedCreditTimer=setTimeout(()=>{if(sequence===sharedCreditSequence){toast.innerHTML='';toast.classList.remove('shared-credit-toast');}},2800);
 }
 
 // GAME CENTER JS END
@@ -1763,7 +1900,7 @@ function showPartnerReward(t,season=state.themeRotation.season){
  const canClaim=!expired&&!status.claimed&&!status.locked&&status.ready&&!status.unavailable;
  $('prizeAction').disabled=false;$('prizeAction').textContent=coupon?(coupon.used?'Закрыть':'Использовать в демо'):canClaim?'Забрать награду':'Закрыть';openModal('prizeDialog');
 }
-function partnerPrizeAction(){if(prizeIsExpired(activePrize)){closeModal('prizeDialog');renderNotifications();return;}const [,season,raw]=activePrize.split(':'),t=Number(raw),coupon=partnerCoupon(t,season);if(coupon){if(!coupon.used){coupon.used=true;save();renderPrizes();showPartnerReward(t,season);}else closeModal('prizeDialog');return;}if(claimPartnerReward(t,season)){renderBook();renderHome();renderPrizes();showPartnerReward(t,season);}else closeModal('prizeDialog');}
+function partnerPrizeAction(){if(prizeIsExpired(activePrize)){closeModal('prizeDialog');renderNotifications();return;}const [,season,raw]=activePrize.split(':'),t=Number(raw),coupon=partnerCoupon(t,season);if(coupon){if(!coupon.used){coupon.used=true;save();renderPrizes();closeModal('prizeDialog');renderCenterNotifications();}else closeModal('prizeDialog');return;}if(claimPartnerReward(t,season)){renderBook();renderHome();renderPrizes();showPartnerReward(t,season);}else closeModal('prizeDialog');}
 
 const choose=items=>items[Math.floor(Math.random()*items.length)];
 function shuffled(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -2033,13 +2170,20 @@ async function flyCollectedWord(flow,rowEl){
 }
 function paintCoinBalance(){const hold=winCoinPresentation?.amount||0;$('coinBalance').textContent=Math.max(0,coinBalance()-hold);}
 function finishCoinFlight(){clearTimeout(coinFlightTimer);coinFlightTimer=null;winCoinPresentation=null;for(const el of document.querySelectorAll('.win-coin-flight'))el.remove();paintCoinBalance();}
+function animateWalletReward(icon,from,target){
+ if(reduced()||!from||!target)return;
+ const to=target.getBoundingClientRect();if(!to.width||!to.height)return;
+ for(let i=0;i<5;i++){
+  const token=document.createElement('span');token.className='win-coin-flight wallet-reward-flight';token.innerHTML=icon;token.setAttribute('aria-hidden','true');token.style.left=(from.left+from.width/2-14)+'px';token.style.top=(from.top+from.height/2-14)+'px';token.style.setProperty('--dx',(to.left+to.width/2-from.left-from.width/2)+'px');token.style.setProperty('--dy',(to.top+to.height/2-from.top-from.height/2)+'px');token.style.setProperty('--delay',(i*70)+'ms');document.body.append(token);setTimeout(()=>token.remove(),1100);
+ }
+ setTimeout(()=>{target.classList.remove('coin-arrival');void target.offsetWidth;target.classList.add('coin-arrival');},760);
+}
 function animateWinCoins(round){
  const grant=state.economy.coinGrants.find(x=>x.id==='win-coins:'+round.id);if(!grant)return;
  if(reduced()){finishCoinFlight();return;}
  const origin=(round.kind!=='paid'&&$('calendarGrid').querySelector('[data-calendar-day="'+round.day+'"]'))||$('calendarExtra');if(!origin){finishCoinFlight();return;}
- const from=origin.getBoundingClientRect(),to=$('openCoins').getBoundingClientRect();
- for(let i=0;i<5;i++){const coin=document.createElement('span');coin.className='win-coin-flight';coin.innerHTML=eventArt('coins-100');coin.setAttribute('aria-hidden','true');coin.style.left=(from.left+from.width/2-14)+'px';coin.style.top=(from.top+from.height/2-14)+'px';coin.style.setProperty('--dx',(to.left+to.width/2-from.left-from.width/2)+'px');coin.style.setProperty('--dy',(to.top+to.height/2-from.top-from.height/2)+'px');coin.style.setProperty('--delay',(260+i*70)+'ms');$('hintFlights').append(coin);}
- clearTimeout(coinFlightTimer);coinFlightTimer=setTimeout(()=>{finishCoinFlight();$('openCoins').classList.remove('coin-arrival');void $('openCoins').offsetWidth;$('openCoins').classList.add('coin-arrival');},1320);
+ animateWalletReward(eventArt('coins-100'),origin.getBoundingClientRect(),$('openCoins'));
+ clearTimeout(coinFlightTimer);coinFlightTimer=setTimeout(finishCoinFlight,1100);
 }
 
 function renderHomeThemes(animate=false,before={},target='homeCollections'){
@@ -2289,7 +2433,7 @@ function openThemes(){if(!busy&&flagEnabled('themes'))navigate('dictionary/theme
 function backToThemes(){if((history.state&&history.state.fromHub))history.back();else{history.replaceState(null,'','#dictionary/themes');showView();}}
 function handlePlacement(e){const close=e.target.closest('[data-close-ad]');if(close){if(close.dataset.closeAd==='prizes'){prizeAdHidden=true;renderPrizes();}else{collectionAdHidden=true;renderBook();}return true;}if(e.target.closest('[data-ad]')){info('Скидка 12% на квартиру','Пример рекламного размещения в игре. Баннер взят из видеозаписи оригинала; предложение не является действующим.');return true;}return false;}
 function openThemeCard(e){if(handlePlacement(e))return;const card=e.target.closest('[data-theme]');if(card&&!busy)openBook(card.dataset.theme);}
-function openModal(id){if(id==='prizeDialog')renderExpiryNotice(activePrize,'prizeExpiryNotice','prizeAction');const el=$(id);if(!el.open)modalOpener=document.activeElement;if(typeof el.showModal==='function')el.showModal();else{el.classList.add('dialog-fallback');el.setAttribute('open','');el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');const button=el.querySelector('button');if(button)button.focus();}}
+function openModal(id){if(id==='prizeDialog'){renderExpiryNotice(activePrize,'prizeExpiryNotice','prizeAction');renderPrizePartnerLink();}if(id==='marketDialog')renderMarketPartnerLink();const el=$(id);if(!el.open)modalOpener=document.activeElement;if(typeof el.showModal==='function')el.showModal();else{el.classList.add('dialog-fallback');el.setAttribute('open','');el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');const button=el.querySelector('button');if(button)button.focus();}}
 function closeModal(id){const el=$(id);if(typeof el.close==='function')el.close();else el.removeAttribute('open');if(modalOpener&&modalOpener.isConnected)modalOpener.focus({preventScroll:true});}
 function applyTheme(){document.documentElement.style.setProperty('--theme-rgb','255 221 45');}
 
@@ -2511,7 +2655,7 @@ function prizeProduct(number){return PRIZE_CATALOG[(number-1)%PRIZE_CATALOG.leng
 function renderPrizes(){
   renderNotifications();if(roadmapReady)renderRoadmapPrizes();
   $('ownedPrizesTab').setAttribute('aria-selected',prizeTab==='owned');$('availablePrizesTab').setAttribute('aria-selected',prizeTab==='available');
-  const e=state.economy,owned=e.prizes.filter(x=>x.claimed&&!isChestCurrency(ownedPrizeProduct(x)));let cards=[];
+  const e=state.economy;let cards=[];
   if(prizeTab==='available'){
     const ready=ALL_THEMES.filter(id=>e.themePrizes[id]&&!e.themePrizes[id].claimed).length,sources=[];
     if(flagEnabled('themes'))sources.push(prizeSourceCard('themes','За тему',ready?'Готово к получению: '+ready:'Собери тему целиком и забери её приз','gift','К темам'));
@@ -2520,16 +2664,16 @@ function renderPrizes(){
     if(flagEnabled('raffles')&&!roadmapReady)sources.push(prizeSourceCard('draws','В розыгрышах','Билеты на квартиру и гаджеты','gadgets','К розыгрышам'));
     $('prizeList').innerHTML=sources.join('')+(sources.length?themeAd('prizes'):roadmapReady?'':'<div class="empty-prizes"><h2>Источники призов выключены</h2><p>Включи нужные механики в профиле.</p></div>');return;
   }
-  if(prizeTab==='owned'){
-    cards=owned.map(x=>({key:x.id,product:ownedPrizeProduct(x),caption:x.used?'Использован в демо':x.source==='chest'?'Из сундука':'Получено ранее',button:x.used?'Посмотреть':'К призу',unlocked:true}));
-    if(e.demoArchive)cards=cards.concat(PRIZE_CATALOG.map((product,i)=>({key:'demo-'+i,product,button:'К призу',caption:'',source:true,unlocked:true})),EXPIRED_PRIZES.map(title=>({product:{title},expired:true})));
-  }
-  const themeCards=ALL_THEMES.filter(id=>state.economy.themePrizes[id]?.claimed).map(id=>{const item=state.economy.themePrizes[id];return {key:'theme-'+id,product:themePrizeProduct(id),caption:(item?(item.used?'Использован · ':item.claimed?'Собрана тема · ':'Приз доступен · '):'За всю тему · ')+THEMES[id].title,button:item?(item.claimed?'К призу':'Забрать'):'К теме',unlocked:!!item};});
-  if(prizeTab==='owned')cards=Object.entries(MARKET_ITEMS).filter(([id,item])=>item.kind==='offer'&&marketOwned(id)).map(([id,item])=>({key:'market-'+id,product:item,caption:marketUsed(id)?'Использовано в демо':'Получено за '+item.cost+' монет',button:'К предложению',unlocked:true})).concat(cards);
-  const partnerCards=e.partnerCoupons.map(x=>({key:'partner:'+x.season+':'+x.threshold,product:{title:x.threshold+'% кэшбэк · Перекрёсток'},caption:(x.used?'Использован · ':'Твой приз · ')+x.season,button:'К призу',unlocked:true}));
-  const archivedCards=e.themeInventory.map(x=>({key:'inventory:'+x.id,product:{title:'Приз за тему «'+THEMES[x.theme].title+'»'},caption:'Сохранён · '+x.season,button:'К призу',unlocked:true}));
-  cards=partnerCards.concat(themeCards,archivedCards,cards);
-  $('prizeList').innerHTML=cards.length?cards.map((x,i)=>'<article class="home-block prize-card '+(prizeIsExpired(x.key)||x.expired?'expired':'')+(x.source?' source-card':'')+'" data-owned-prize="'+(x.key||'')+'"><h2>'+escapeHTML(x.product.title).replace(': ',':<br>')+'</h2>'+(x.expired?'<p>Срок действия истёк</p>':(x.caption?'<p>'+x.caption+'</p>':'')+prizeExpiryMarkup(x.key)+'<button class="primary attention-target" data-prize="'+x.key+'" data-attention="'+prizeNeedsAttention(x.key)+'">'+(prizeIsExpired(x.key)?'Посмотреть':x.button)+'</button>')+(x.product.art?eventArt(x.product.art,'prize-art owned-offer-art'):art(x.unlocked?'gift':'gift-locked','prize-art'))+'</article>'+(prizeTab==='available'&&i===Math.min(1,cards.length-1)?themeAd('prizes'):'')).join(''):'<div class="empty-prizes">'+art('gift-locked','prize-art')+'<h2>Твой первый приз впереди</h2><p>Открой сундук с наградами.<br>Полученные призы появятся здесь.</p><button class="primary" id="emptyPrizesPlay">Вернуться к игре</button></div>';
+  cards=ownedPrizeEntries().map(entry=>{
+    const {key,item}=entry;let product,caption='';
+    if(key.startsWith('market-')){product=MARKET_ITEMS[key.slice(7)];caption='Предложение партнёра';}
+    else if(key.startsWith('partner:')){product={title:entry.title,art:'gift'};caption='Перекрёсток · '+item.season;}
+    else if(key.startsWith('theme-')){product=themePrizeProduct(key.slice(6));caption='За собранную тему';}
+    else if(key.startsWith('inventory:')){product={title:entry.title,art:'gift'};caption='За собранную тему';}
+    else {product=ownedPrizeProduct(item);caption=item.source==='chest'?'Из сундука':'Предложение партнёра';}
+    return {key,product,caption,button:'К призу',unlocked:true};
+  });
+  $('prizeList').innerHTML=cards.length?cards.map((x,i)=>'<article class="home-block prize-card '+(prizeIsExpired(x.key)||x.expired?'expired':'')+(x.source?' source-card':'')+'" data-owned-prize="'+(x.key||'')+'"><h2>'+escapeHTML(x.product.title).replace(': ',':<br>')+'</h2>'+(x.expired?'<p>Срок действия истёк</p>':(x.caption?'<p>'+x.caption+'</p>':'')+prizeExpiryMarkup(x.key)+'<button class="primary attention-target" data-prize="'+x.key+'" data-attention="'+prizeNeedsAttention(x.key)+'">'+(prizeIsExpired(x.key)?'Посмотреть':x.button)+'</button>')+(x.product.art?eventArt(x.product.art,'prize-art owned-offer-art'):art(x.unlocked?'gift':'gift-locked','prize-art'))+'</article>'+(prizeTab==='available'&&i===Math.min(1,cards.length-1)?themeAd('prizes'):'')).join(''):'<div class="empty-prizes">'+art('gift-locked','prize-art')+'<h2>Твой первый приз впереди</h2><p>Открой сундук с наградами.<br>Здесь будут предложения, которые нужно использовать у партнёра.</p><button class="primary" id="emptyPrizesPlay">Вернуться к игре</button></div>';
   if(!cards.length)$('emptyPrizesPlay').onclick=()=>navigate('home');
 }
 function showPrize(id){
@@ -2546,6 +2690,23 @@ function showPrize(id){
   const code=!!item&&item.claimed||isDemo;$('prizeCode').classList.toggle('hidden',!code);$('prizeCode').textContent=code?'DEMO–5BUKV':'';
   $('prizeAction').textContent=item?(item.used?'Закрыть':item.claimed?'Использовать в демо':'Забрать приз'):isDemo?'Закрыть':'Продолжить игру';openModal('prizeDialog');
 }
+function prizeEntryProduct(entry){
+ if(!entry)return null;const key=entry.key;
+ if(key.startsWith('market-'))return MARKET_ITEMS[key.slice(7)];
+ if(key.startsWith('partner:'))return {title:'Перекрёсток'};
+ if(key.startsWith('theme-')||key.startsWith('inventory:'))return {title:entry.title};
+ return ownedPrizeProduct(entry.item);
+}
+function renderPrizePartnerLink(){
+ const entry=ownedPrizeEntries().find(x=>x.key===activePrize),link=$('prizePartnerLink');
+ link.hidden=!entry;$('prizeAction').hidden=!!entry;
+ if(entry)link.href=partnerPrizeUrl(prizeEntryProduct(entry));
+}
+function renderMarketPartnerLink(){
+ const item=MARKET_ITEMS[activeMarket],entry=ownedPrizeEntries().find(x=>x.key==='market-'+activeMarket),visible=item?.kind==='offer'&&!!entry;
+ $('marketPartnerLink').hidden=!visible;$('marketBuyControls').hidden=visible;
+ if(visible)$('marketPartnerLink').href=partnerPrizeUrl({...item,id:activeMarket});
+}
 function claimPrize(id){const item=state.economy.prizes.find(x=>x.id===id);if(!item||item.claimed)return false;item.claimed=true;save();return true;}
 function prizeAction(){
   if(prizeIsExpired(activePrize)){closeModal('prizeDialog');renderNotifications();return;}
@@ -2556,12 +2717,12 @@ function prizeAction(){
     const id=activePrize.slice(6),p=state.economy.themePrizes[id];
     if(!p){closeModal('prizeDialog');openBook(id);return;}
     if(!p.claimed){if(claimThemeReward(id,100)){renderBook();renderPrizes();showThemePrize(id);}else closeModal('prizeDialog');return;}
-    if(!p.used){p.used=true;save();renderPrizes();showThemePrize(id);return;}
+    if(!p.used){p.used=true;save();renderPrizes();closeModal('prizeDialog');renderCenterNotifications();return;}
     closeModal('prizeDialog');return;
   }
   const item=state.economy.prizes.find(x=>x.id===activePrize);
   if(item&&!item.claimed){claimPrize(item.id);renderHome();renderPrizes();showPrize(item.id);return;}
-  if(item&&!item.used){item.used=true;save();renderPrizes();showPrize(item.id);return;}
+  if(item&&!item.used){item.used=true;save();renderPrizes();closeModal('prizeDialog');renderCenterNotifications();return;}
   closeModal('prizeDialog');if(!item&&!activePrize.startsWith('demo-'))navigate('home');
 }
 function renderFeatureFlags(){
@@ -2614,7 +2775,7 @@ window.addEventListener('popstate',showView);window.addEventListener('hashchange
 
 function expiryField(item){return Number.isFinite(item?.expiresAt)&&item.expiresAt>0?{expiresAt:item.expiresAt}:{};}
 function seenPrizeField(item){return item?.seen===true?{seen:true}:{};}
-function ownedPrizeEntries(){
+function allOwnedPrizeEntries(){
  const e=state.economy;
  return e.prizes.filter(x=>x.claimed&&!isChestCurrency(ownedPrizeProduct(x))).map(x=>({key:x.id,title:ownedPrizeProduct(x).title,item:x}))
  .concat(e.partnerCoupons.map(x=>({key:'partner:'+x.season+':'+x.threshold,title:x.threshold+'% кэшбэк · Перекрёсток',item:x})))
@@ -2622,16 +2783,17 @@ function ownedPrizeEntries(){
  .concat(e.themeInventory.filter(x=>x.claimed).map(x=>({key:'inventory:'+x.id,title:'Приз за тему «'+THEMES[x.theme].title+'»',item:x})))
  .concat(Object.entries(MARKET_ITEMS).filter(([id,x])=>x.kind==='offer'&&marketOwned(id)).map(([id,x])=>{const record=e.coinSpends.find(p=>p.id==='market:'+id);return {key:'market-'+id,title:x.title,record,item:{...record,used:marketUsed(id)}};}));
 }
+function ownedPrizeEntries(){return allOwnedPrizeEntries().filter(x=>prizeActionable(x.item));}
 function prizeIsUnseen(key){const entry=ownedPrizeEntries().find(x=>x.key===key);return !!entry&&!entry.item.seen;}
 function prizeNeedsAttention(key){return prizeIsUnseen(key)||prizeIsUrgent(key);}
 function markPrizeSeen(key){
  const entry=ownedPrizeEntries().find(x=>x.key===key);if(!entry||entry.item.seen)return false;
  (entry.record||entry.item).seen=true;save();renderNotifications();return true;
 }
-function prizeExpiry(key){return ownedPrizeEntries().find(x=>x.key===key)?.item.expiresAt||null;}
+function prizeExpiry(key){return allOwnedPrizeEntries().find(x=>x.key===key)?.item.expiresAt||null;}
 function prizeIsExpired(key,now=Date.now()){const deadline=prizeExpiry(key);return !!deadline&&deadline<=now;}
 function prizeIsUrgent(key,now=Date.now()){const entry=ownedPrizeEntries().find(x=>x.key===key);return !!entry&&!entry.item.used&&Number.isFinite(entry.item.expiresAt)&&entry.item.expiresAt>now&&entry.item.expiresAt-now<86400000;}
-function prizeExpiryCaption(key){if(ownedPrizeEntries().find(x=>x.key===key)?.item.used)return '';const time=prizeExpiry(key);if(!time)return '';const left=time-Date.now();return left<=0?'Срок действия истёк':left<3600000?'Осталось меньше часа':left<86400000?'Осталось '+Math.ceil(left/3600000)+' ч · успей использовать':'Действует до '+new Date(time).toLocaleDateString('ru-RU',{day:'numeric',month:'short'});}
+function prizeExpiryCaption(key){if(allOwnedPrizeEntries().find(x=>x.key===key)?.item.used)return '';const time=prizeExpiry(key);if(!time)return '';const left=time-Date.now();return left<=0?'Срок действия истёк':left<3600000?'Осталось меньше часа':left<86400000?'Осталось '+Math.ceil(left/3600000)+' ч · успей использовать':'Действует до '+new Date(time).toLocaleDateString('ru-RU',{day:'numeric',month:'short'});}
 function prizeExpiryMarkup(key){return prizeExpiryCaption(key)?'<p class="expiry-notice '+(prizeIsUrgent(key)?'urgent':'')+'" data-prize-expiry="'+key+'">'+prizeExpiryCaption(key)+'</p>':'';}
 function renderExpiryNotice(key,id,action){const el=$(id);el.hidden=!prizeExpiryCaption(key);el.textContent=prizeExpiryCaption(key);el.classList.toggle('urgent',prizeIsUrgent(key));if(prizeIsExpired(key))$(action).textContent='Закрыть';}
 function refreshPrizeExpiryUI(){
@@ -2696,7 +2858,7 @@ function normalizeRoadmap(raw){
  r.chainEntry=typeof raw.chainEntry==='string'?raw.chainEntry:null;r.chainRewards=Array.isArray(raw.chainRewards)?raw.chainRewards.filter(x=>typeof x==='string'):[];
  r.contestOffset=Number.isInteger(raw.contestOffset)?Math.max(0,Math.min(365,raw.contestOffset)):0;
  r.eventSeen=typeof raw.eventSeen==='string'?raw.eventSeen:null;
- const normalizeRun=x=>x&&validCalendarDay(x.day)&&Number.isFinite(x.endsAt)&&Number.isFinite(x.startedAt)?{runId:typeof x.runId==='string'?x.runId:rmUniqueId(),nickname:typeof x.nickname==='string'?x.nickname.slice(0,20):'',submission:['local','pending','sent','error'].includes(x.submission)?x.submission:'local',demo:x.demo===true,day:x.day,startedAt:x.startedAt,endsAt:x.endsAt,found:Array.isArray(x.found)?x.found.filter(w=>typeof w==='string'&&w.length===5).slice(0,24):[],mistakes:Math.max(0,Number(x.mistakes)||0),finished:!!x.finished,settled:!!x.settled,claimed:!!x.claimed,rank:Math.max(0,Number(x.rank)||0),reward:Math.min(3,Math.max(0,Number(x.reward)||0))}:null;
+ const normalizeRun=x=>x&&validCalendarDay(x.day)&&Number.isFinite(x.endsAt)&&Number.isFinite(x.startedAt)?{runId:typeof x.runId==='string'?x.runId:rmUniqueId(),nickname:typeof x.nickname==='string'?x.nickname.slice(0,20):'',submission:['local','pending','sent','error'].includes(x.submission)?x.submission:'local',demo:x.demo===true,day:x.day,routeVersion:x.routeVersion===2?2:1,startedAt:x.startedAt,endsAt:x.endsAt,found:Array.isArray(x.found)?x.found.filter(w=>typeof w==='string'&&w.length===5).slice(0,24):[],mistakes:Math.max(0,Number(x.mistakes)||0),finished:!!x.finished,settled:!!x.settled,claimed:!!x.claimed,rank:Math.max(0,Number(x.rank)||0),reward:Math.min(3,Math.max(0,Number(x.reward)||0))}:null;
  r.contest=normalizeRun(raw.contest);r.contestHistory=Array.isArray(raw.contestHistory)?raw.contestHistory.map(normalizeRun).filter(Boolean):[];r.contestDemoVersion=raw.contestDemoVersion===1?1:0;if(!r.contestDemoVersion&&r.onboarding!=='done'){r.contestHistory.push(newContestDemoReward());r.contestDemoVersion=1;}return r;
 }
 let roadmapReady=false,roadmapRoute='',roadmapMarkup='',roadmapShellOpen=false,roadmapTransition=null,roadmapBuyQuantity={avito:1,gadgets:1,money:1,shopping:1,car:1},roadmapFlipped={},contestInput='',contestPicked=[],contestNotice='',roadmapRaffleFocus=null,roadmapLastPanel='roadmapScreen',roadmapHomeMarkup='',roadmapContestToast='';
@@ -2713,11 +2875,11 @@ function rmEnergy(n=3){return n+' '+art('energy','energy-symbol');}
 function rmModal(html){$('roadmapDialogBody').innerHTML=html;openModal('roadmapDialog');}
 function rmAction(action,label,cls='primary',extra=''){return '<button class="'+cls+'" data-rm="'+action+'" '+extra+'>'+label+'</button>';}
 
-function rmTaskCards(){return gameTaskList().map(t=>rmTaskRow({...t,art:t.coins>200?'coins-300':'coins-200',rotationLabel:t.period==='day'?'Обновляется каждый день':'Обновляется каждый месяц',date:t.period==='day'?'До конца дня':'До конца месяца',reward:'+'+t.coins,action:'game-task',claimed:state.center.taskClaims.includes(t.id)})).join('');}
+function rmTaskCards(){return gameTaskList().map(t=>rmTaskRow({...t,art:t.coins>200?'coins-300':'coins-200',date:t.period==='day'?'До конца дня':'До конца месяца',reward:'+'+t.coins,action:'game-task',claimed:state.center.taskClaims.includes(t.id)})).join('');}
 function rmTaskRow(t,controls={}){
  const progress=Number.isFinite(t.total),ready=(t.ready===true||progress&&t.count>=t.total)&&!t.claimed,attrs=(controls.actionAttrs||'data-rm="'+t.action+'" data-id="'+t.id+'"')+' '+(t.claimed||t.expired?'disabled':'');
  const label=t.claimed?'Получено':ready?(controls.readyLabel||'Забрать монеты'):t.date||'До конца месяца';
- return '<article class="rm-task-row '+(ready?'ready ':'')+(t.partner?'rm-task-partner':'')+'"><div class="rm-task-info"><button class="rm-task-open" '+attrs+'>'+(t.partner||t.brand?'<span class="rm-task-brand"><img src="'+RM_ASSETS.avitoMark+'" alt="">Задание от Авито</span>':'')+'<span class="rm-task-title">'+t.title+(t.rotationLabel?recurringTaskIcon(t.rotationLabel):'')+'</span>'+(progress?'<span class="rm-task-progress" role="progressbar" aria-label="'+t.title+'" aria-valuemin="0" aria-valuemax="'+t.total+'" aria-valuenow="'+Math.min(t.count,t.total)+'"><i style="width:'+Math.min(100,t.count/t.total*100)+'%"></i></span>':'')+'<span class="rm-task-bottom"><span>'+label+'</span>'+(progress?'<span>'+Math.min(t.count,t.total)+' / '+t.total+'</span>':'')+'</span></button>'+(t.description?'<button class="rm-task-info-button" '+(controls.infoAttrs||'data-rm="task-info" data-id="'+t.id+'"')+' aria-label="Условия: '+t.title+'"><span class="rm-info-circle" aria-hidden="true">i</span></button>':'')+'</div><button class="rm-task-reward attention-target" data-attention="'+(flagEnabled('notifications')&&ready)+'" '+attrs+' aria-label="'+(controls.rewardLabel||(t.claimed?'Награда получена':ready?'Забрать '+t.coins+' монет':'Награда: '+t.reward))+'">'+(t.art==='ticket'?'<img class="rm-gold-ticket" src="'+RM_ASSETS.ticket+'" alt="">':eventArt(t.art))+'<b>'+t.reward+'</b>'+(t.partner?art('energy')+'<b>+1</b>':'')+'</button></article>';
+ return '<article class="rm-task-row '+(ready?'ready ':'')+(t.partner?'rm-task-partner':'')+'"><div class="rm-task-info"><button class="rm-task-open" '+attrs+'>'+(t.partner||t.brand?'<span class="rm-task-brand"><img src="'+RM_ASSETS.avitoMark+'" alt="">Задание от Авито</span>':'')+'<span class="rm-task-title">'+t.title+'</span>'+(progress?'<span class="rm-task-progress" role="progressbar" aria-label="'+t.title+'" aria-valuemin="0" aria-valuemax="'+t.total+'" aria-valuenow="'+Math.min(t.count,t.total)+'"><i style="width:'+Math.min(100,t.count/t.total*100)+'%"></i></span>':'')+'<span class="rm-task-bottom"><span>'+label+'</span>'+(progress?'<span>'+Math.min(t.count,t.total)+' / '+t.total+'</span>':'')+'</span></button>'+(t.description?'<button class="rm-task-info-button" '+(controls.infoAttrs||'data-rm="task-info" data-id="'+t.id+'"')+' aria-label="Условия: '+t.title+'"><span class="rm-info-circle" aria-hidden="true">i</span></button>':'')+'</div><button class="rm-task-reward attention-target" data-attention="'+(flagEnabled('notifications')&&ready)+'" '+attrs+' aria-label="'+(controls.rewardLabel||(t.claimed?'Награда получена':ready?'Забрать '+t.coins+' монет':'Награда: '+t.reward))+'">'+(t.art==='ticket'?'<img class="rm-gold-ticket" src="'+RM_ASSETS.ticket+'" alt="">':eventArt(t.art))+'<b>'+t.reward+'</b>'+(t.partner?art('energy')+'<b>+1</b>':'')+'</button></article>';
 }
 function rmPartnerCard(){const status=state.roadmap.partner;return rmTaskRow({id:'avito',title:'Сохрани объявление',description:true,partner:true,art:'ticket',reward:'+1',action:status==='claimed'?'avito-draw':'avito-task',date:status==='ready'?'Забрать награду':status==='claimed'?'Билет получен · к розыгрышу':'До конца месяца'});}
 function rmTaskInfo(id){
@@ -2727,7 +2889,7 @@ function rmTaskInfo(id){
 }
 function renderRoadmap(){
  if(!roadmapReady)return;const route=location.hash.slice(1).split('/')[0]||'home',host=$('roadmapContent');let html='';
- if(route==='tasks')html='<header class="rm-task-heading"><h1>Задания</h1><p>Выполняй и получай больше наград</p></header><h2 class="rm-group-heading">Внутриигровые задания</h2><div class="rm-task-list">'+rmTaskCards()+'</div><h2 class="rm-general-heading">Общие задания</h2>'+renderSharedTasks();
+ if(route==='tasks')html='<header class="rm-task-heading"><h1>Задания</h1><p>Выполняй и получай больше наград</p></header>'+renderPrioritySharedTasks()+'<h2 class="rm-group-heading">Внутриигровые задания'+recurringTaskIcon('Задания обновляются каждый день и месяц')+'</h2><div class="rm-task-list">'+rmTaskCards()+'</div><h2 class="rm-general-heading">Общие задания</h2>'+renderSharedTasks({excludePriority:true});
  else if(route==='shop')html='<h1>Магазин</h1>';
  else if(route==='raffles-history')html=rmAction('prizes','‹ Розыгрыши','rm-back')+'<h1>Прошлые розыгрыши</h1><div class="rm-card rm-empty-history">'+eventArt('ticket')+'<h2>Здесь будут итоги</h2><p>Когда розыгрыш завершится, сохраним здесь твои билеты и результат участия.</p></div>';
  else if(route==='contest')html=contestGameHTML();
@@ -2756,7 +2918,7 @@ function renderHomeModes(){
  const html=tiles?'<h1 class="rm-hub-title">Играть</h1>'+calendar+extra+(flagEnabled('chain')?chain+timedTile:''):'<h2>Другие режимы</h2>'+extra+(flagEnabled('chain')?chain+timedCard:'');
  if(roadmapHomeMarkup!==html){roadmapHomeMarkup=html;$('homeModes').innerHTML=html;}updateContestClock();roadmapNotifications();
 }
-function showAvitoTask(){return showSharedTask('avito');}
+function showAvitoTask(){return navigateToSharedTask('avito','tasks');}
 function completeAvitoTask(){return completeSharedTask('avito');}
 function claimAvitoTask(){return claimSharedTask('avito');}
 function roadmapPurchaseTickets(id,qty,token){
@@ -2818,9 +2980,15 @@ function rewardPaidChain(){
  const id=state.roadmap.chainEntry;state.roadmap.chainRewards.push(id);state.economy.coinGrants.push({id:'chain-coins:'+id,amount:100,label:'Цепь слов собрана',at:Date.now()});save();return true;
 }
 function contestDayKey(){return roadmapMoscowDay(Date.now()+(state.roadmap.contestOffset||0)*86400000);}
-function contestSteps(day=contestDayKey()){
- const routes=[...CHAIN_ROUTES],offset=Math.floor(Date.parse(day)/86400000)%routes.length;
- return routes.slice(offset).concat(routes.slice(0,offset)).flatMap(r=>r.steps.map((s,i)=>({...s,previous:i?r.steps[i-1].word:r.seed,newLink:i===0})));
+// Preserve an in-flight legacy route after reload; new runs use one continuous
+// chain. Daily variation comes from racks, never an unrelated replacement word.
+function contestSteps(day=contestDayKey(),routeVersion=state.roadmap.contest?.day===day?state.roadmap.contest.routeVersion:2){
+ if(routeVersion!==2){
+  const routes=[...CHAIN_ROUTES],offset=Math.floor(Date.parse(day)/86400000)%routes.length;
+  return routes.slice(offset).concat(routes.slice(0,offset)).flatMap(r=>r.steps.map((s,i)=>({...s,previous:i?r.steps[i-1].word:r.seed,newLink:i===0})));
+ }
+ const words=['БЕРЕГ','ПЕСОК','КВАРЦ','АЛМАЗ','ГРАНЬ','ЛИНЗА','ФОКУС','МАГИЯ','КНИГА','БУКВА','ШРИФТ','НАБОР','ТЕКСТ','АБЗАЦ','РОМАН','ГЕРОЙ','ОБРАЗ','АКТЕР','ТЕАТР','СЦЕНА','ПЕСНЯ','ГОЛОС','РАДИО','ВОЛНА'];
+ return words.map((word,i)=>({word,size:i<2?7:8,previous:i?words[i-1]:'ВОЛНА',newLink:i===0}));
 }
 function contestRanking(run=state.roadmap.contest){
  const day=run?.day||contestDayKey(),data=leaderboardBoards[day],rows=(data?.rows||[]).map(p=>({name:p.nickname,score:p.score,self:p.playerId===state.roadmap.playerId,at:p.at,playerId:p.playerId,local:false}));
@@ -2848,18 +3016,18 @@ function startContest(){
  if(c)settleContest(c);
  if(pendingContestRewards().length){navigate('home');return false;}
  if(c)r.contestHistory.push(c);
- r.contest={runId:rmUniqueId(),nickname:'',submission:'local',day:contestDayKey(),startedAt:Date.now(),endsAt:Date.now()+120000,found:[],mistakes:0,finished:false,settled:false,claimed:false,rank:0,reward:0,demo:false};contestInput='';contestPicked=[];contestNotice='';roadmapContestToast='';save();navigate('contest');return true;
+ r.contest={runId:rmUniqueId(),nickname:'',submission:'local',day:contestDayKey(),routeVersion:2,startedAt:Date.now(),endsAt:Date.now()+120000,found:[],mistakes:0,finished:false,settled:false,claimed:false,rank:0,reward:0,demo:false};contestInput='';contestPicked=[];contestNotice='';roadmapContestToast='';save();navigate('contest');return true;
 }
 function contestSeconds(){const c=state.roadmap.contest;return c?Math.max(0,Math.ceil((c.endsAt-Date.now())/1000)):0;}
 function contestGameHTML(){
  const c=state.roadmap.contest;if(!c)return '<h1>Цепочка на время</h1><p class="rm-subtitle">2 минуты · максимум слов · один заход в день.</p>'+rmAction('contest-start','Играть бесплатно');
  if(c.finished||c.endsAt<=Date.now())return contestLeadersHTML();
- const steps=contestSteps(c.day),step=steps[c.found.length],rack=makeChainRack(step,chainRandom(c.day+':'+c.found.length));
- return rmAction('leaders','‹ Таблица участников','rm-back')+'<div class="rm-contest-head"><h1>Цепочка на время</h1><time class="rm-timer" id="contestTimer"></time></div><p class="rm-contest-score">'+wordAmount(c.found.length)+' отгадано</p><div class="rm-contest-clue"><small>'+(step.newLink?'Начни новую связку':'Предыдущее слово')+'</small><b>'+step.previous+' →</b></div><div class="rm-contest-input" aria-label="Текущее слово">'+Array.from({length:5},(_,i)=>'<i>'+ (contestInput[i]||'')+'</i>').join('')+'</div><div class="rm-contest-rack">'+[...rack].map((l,i)=>'<button data-rm="contest-letter" data-index="'+i+'" '+(contestPicked.includes(i)?'disabled':'')+'>'+l+'</button>').join('')+'</div><div class="rm-contest-actions">'+rmAction('contest-erase','⌫','secondary','aria-label="Удалить букву"')+rmAction('contest-submit','Проверить слово')+'</div><p class="rm-contest-status" role="status">'+(contestNotice||'Ошибка отнимает 3 секунды')+'</p><p class="rm-demo-label">Таймер продолжает идти, если выйти с экрана.</p><h2>Таблица участников</h2>'+contestBoardHTML(c);
+ const steps=contestSteps(c.day,c.routeVersion),step=steps[c.found.length],rack=makeChainRack(step,chainRandom(c.day+':'+c.found.length));
+ return rmAction('leaders','‹ Таблица участников','rm-back')+'<div class="rm-contest-head"><h1>Цепочка на время</h1><time class="rm-timer" id="contestTimer"></time></div><p class="rm-contest-score">'+wordAmount(c.found.length)+' отгадано</p><p class="rm-contest-bonus">+5 секунд за каждое отгаданное слово</p><div class="rm-contest-clue"><small>'+(step.newLink?'Первое слово цепочки':'Предыдущее слово')+'</small><b>'+step.previous+' →</b></div><div class="rm-contest-input" aria-label="Текущее слово">'+Array.from({length:5},(_,i)=>'<i>'+ (contestInput[i]||'')+'</i>').join('')+'</div><div class="rm-contest-rack">'+[...rack].map((l,i)=>'<button data-rm="contest-letter" data-index="'+i+'" '+(contestPicked.includes(i)?'disabled':'')+'>'+l+'</button>').join('')+'</div><div class="rm-contest-actions">'+rmAction('contest-erase','⌫','secondary','aria-label="Удалить букву"')+rmAction('contest-submit','Проверить слово')+'</div><p class="rm-contest-status" role="status">'+(contestNotice||'Ошибка отнимает 3 секунды')+'</p><p class="rm-demo-label">Таймер продолжает идти, если выйти с экрана.</p><h2>Таблица участников</h2>'+contestBoardHTML(c);
 }
 function submitContest(){
  const c=state.roadmap.contest;if(!c||c.finished||contestSeconds()===0)return false;if(contestInput.length!==5){contestNotice='Нужно пять букв';renderRoadmap();return false;}
- const step=contestSteps(c.day)[c.found.length];if(contestInput===step.word){c.found.push(contestInput);contestNotice='Верно! +1 слово';if(c.found.length===24)c.finished=true;}else{c.mistakes++;c.endsAt-=3000;contestNotice='Не та связь · −3 секунды';}
+ const steps=contestSteps(c.day,c.routeVersion),step=steps[c.found.length];if(!step)return false;if(contestInput===step.word){c.found.push(contestInput);c.endsAt+=5000;contestNotice='Верно! +1 слово · +5 секунд';if(c.found.length===steps.length)c.finished=true;}else{c.mistakes++;c.endsAt-=3000;contestNotice='Не та связь · −3 секунды';}
  contestInput='';contestPicked=[];save();if(c.finished||contestSeconds()===0){finishContest();navigate('leaders');}else renderRoadmap();return true;
 }
 
@@ -2873,7 +3041,7 @@ function contestBoardHTML(run=state.roadmap.contest){
 function contestLeadersHTML(){
  const c=state.roadmap.contest,active=c?.day===contestDayKey()&&!c.finished&&c.endsAt>Date.now(),doneToday=c?.day===contestDayKey(),reward=pendingContestRewards()[0],shown=reward||(doneToday?c:null);
  const action=reward?rmAction('contest-claim','Забрать '+reward.reward+' '+(reward.reward===1?'сундук':'сундука'),'primary attention-target','data-day="'+reward.day+'" data-attention="'+flagEnabled('notifications')+'"'):active?rmAction('contest','Продолжить · <span id="contestTimer"></span>','primary attention-target','data-attention="'+flagEnabled('notifications')+'"'):!doneToday?rmAction('contest-start','Играть бесплатно','primary attention-target','data-attention="'+flagEnabled('notifications')+'"'):'<p class="rm-subtitle">Заход завершён. Награды — после итогов дня.</p>';
- return rmAction('home','‹ Все режимы','rm-back')+'<div class="rm-contest-lobby-head"><h1>На время</h1>'+contestDayTimer()+'</div><p class="rm-subtitle">'+(reward?'Итоги '+calendarDateLabel(reward.day):active?'Заход идёт · время не останавливается':'Один бесплатный заход в день · 2 минуты на цепочку')+'</p>'+action+'<h2>Таблица участников</h2>'+contestBoardHTML(shown)+'<p class="rm-save-state">'+(shown?contestResultNote(shown):leaderboardEndpoint?'Участники обновляются с GitHub':'Общая таблица ещё не подключена')+'</p>'+(c?.finished&&!c.demo&&doneToday&&c.submission!=='sent'?rmAction('contest-nickname',c.nickname&&leaderboardEndpoint?'Отправить результат':c.nickname?'Изменить ник':'Записать результат','secondary'):'')+'<p class="rm-subtitle">Награды получают участники, отгадавшие хотя бы одно слово.</p>';
+ return rmAction('home','‹ Все режимы','rm-back')+'<div class="rm-contest-lobby-head"><h1>На время</h1>'+contestDayTimer()+'</div><p class="rm-subtitle">'+(reward?'Итоги '+calendarDateLabel(reward.day):active?'Заход идёт · время не останавливается':'Один бесплатный заход в день · 2 минуты на цепочку')+'</p>'+action+'<p class="rm-contest-bonus">+5 секунд за каждое отгаданное слово</p><h2>Таблица участников</h2>'+contestBoardHTML(shown)+'<p class="rm-save-state">'+(shown?contestResultNote(shown):leaderboardEndpoint?'Участники обновляются с GitHub':'Общая таблица ещё не подключена')+'</p>'+(c?.finished&&!c.demo&&doneToday&&c.submission!=='sent'?rmAction('contest-nickname',c.nickname&&leaderboardEndpoint?'Отправить результат':c.nickname?'Изменить ник':'Записать результат','secondary'):'')+'<p class="rm-subtitle">Награды получают участники, отгадавшие хотя бы одно слово.</p>';
 }
 function updateContestClock(){
  const el=$('contestTimer');if(el){const n=contestSeconds();el.textContent=String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');}
@@ -2924,7 +3092,7 @@ function roadmapHandle(e){
  if(a==='general-task'){showCenterTask(id);return;}
  if(a==='game-task'){const t=gameTaskList().find(x=>x.id===id);if(t&&t.count>=t.total){claimGameTask(id);paintCoinBalance();renderRoadmap();roadmapNotifications();}else navigate('home');return;}
  if(a==='share')return shareRoadmapResult();if(a==='win-next')return continueWinFlow();
- if(a==='contest-letter'){const c=state.roadmap.contest;if(!c||c.finished||!contestSeconds()||contestInput.length===5)return;const step=contestSteps(c.day)[c.found.length],rack=makeChainRack(step,chainRandom(c.day+':'+c.found.length)),i=Number(button.dataset.index);if(contestPicked.includes(i)||!rack[i])return;contestPicked.push(i);contestInput+=rack[i];contestNotice='';renderRoadmap();return;}
+ if(a==='contest-letter'){const c=state.roadmap.contest;if(!c||c.finished||!contestSeconds()||contestInput.length===5)return;const step=contestSteps(c.day,c.routeVersion)[c.found.length],rack=makeChainRack(step,chainRandom(c.day+':'+c.found.length)),i=Number(button.dataset.index);if(contestPicked.includes(i)||!rack[i])return;contestPicked.push(i);contestInput+=rack[i];contestNotice='';renderRoadmap();return;}
  if(a==='contest-erase'){contestInput=contestInput.slice(0,-1);contestPicked.pop();renderRoadmap();return;}if(a==='contest-submit')return submitContest();
  if(a==='contest-nickname')return openContestNickname();if(a==='contest-save')return saveContestNickname();
  if(a==='contest-claim'){if(claimContestReward(button.dataset.day)){roadmapMarkup='';if(view==='home')renderHomeModes();else renderRoadmap();roadmapNotifications();}return;}
@@ -3093,7 +3261,7 @@ $('navGame').onclick=()=>navigate('home');$('navChain').onclick=playChain;$('nav
 $('homeDailyLogin').onclick=openEventChest;$('claimDailyLogin').onclick=claimDailyLogin;$('demoLoginDay').onclick=()=>advanceLoginTimer();$('demoLoginWeek').onclick=()=>advanceLoginTimer(true);
 $('homePlay').onclick=enterCalendarDay;$('calendarExtra').onclick=playExtraWord;$('calendarPrev').onclick=()=>shiftCalendarMonth(-1);$('calendarNext').onclick=()=>shiftCalendarMonth(1);$('calendarToday').onclick=()=>{calendarSelectedDay=dayKey();calendarMonthKey=dayKey().slice(0,7);renderCalendar();};$('calendarGrid').onclick=e=>{const b=e.target.closest('[data-calendar-day]');if(!b||b.disabled)return;calendarSelectedDay=b.dataset.calendarDay;renderCalendar();enterCalendarDay();};$('calendarConfirm').onclick=confirmCalendarDay;$('calendarMonthRewardAction').onclick=()=>openBook();$('backToCalendar').onclick=()=>navigate('home');$('homeCollections').onclick=openThemes;$('homeChain').onclick=playChain;$('homeChests').onclick=()=>openBook();
 $('ownedPrizesTab').onclick=()=>{prizeTab='owned';renderPrizes();};$('availablePrizesTab').onclick=()=>{prizeTab='available';renderPrizes();};
-$('prizeList').onclick=e=>{if(handlePlacement(e))return;const source=e.target.closest('[data-prize-source]');if(source){openPrizeSource(source.dataset.prizeSource);return;}const b=e.target.closest('[data-prize]');if(b)showPrize(b.dataset.prize);};$('prizeAction').onclick=prizeAction;
+$('prizeList').onclick=e=>{if(handlePlacement(e))return;const source=e.target.closest('[data-prize-source]');if(source){openPrizeSource(source.dataset.prizeSource);return;}const b=e.target.closest('[data-prize]');if(b)showPrize(b.dataset.prize);};$('prizeAction').onclick=prizeAction;$('prizePartnerLink').onclick=prizeAction;$('marketPartnerLink').onclick=()=>{if(useMarketOffer(activeMarket)){closeModal('marketDialog');renderPrizes();renderCenterNotifications();}};
 $('energyCollections').onclick=()=>{closeModal('energyDialog');navigate('shop');};$('energyChain').onclick=()=>{closeModal('energyDialog');playChain();};
 $('profileRules').onclick=$('gameRules').onclick=()=>openModal('rules');$('profileLink').onclick=()=>info('Оригинальная игра','Адрес оригинала: 5bukv.tbank.ru. Этот HTML — отдельный локальный прототип.');
 $('featureFlagList').onclick=e=>{const button=e.target.closest('[data-feature-flag]');if(button)setFeatureFlag(button.dataset.featureFlag,button.getAttribute('aria-checked')!=='true');};
